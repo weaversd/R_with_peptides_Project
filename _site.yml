@@ -2,6 +2,8 @@ name: "Peptide Calculations with R"
 navbar:
   title: "HOME"
   left:
+    - text: "Resources"
+      href: Resources.html
     - text: "Background"
       href: Background.html
     - text: "Step 1"
@@ -12,6 +14,8 @@ navbar:
       href: Step_3.html
     - text: "Step 4"
       href: Step_4.html
+    - text: "Assignment"
+      href: Assignment.html
 output_dir: "."
 output:
   html_document:

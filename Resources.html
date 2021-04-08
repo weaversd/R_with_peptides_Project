@@ -11,7 +11,7 @@
 
 
 
-<title>Background</title>
+<title>Resources</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -314,25 +314,38 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Background</h1>
+<h1 class="title toc-ignore">Resources</h1>
 
 </div>
 
 
-<p>Proteomics is the study of the entire set of proteins that exist in a system (a population, an organism, an organ, a cell, etc.). Identifying and quantifying all these proteins can be used for genetic research, biomarker discovery, population analysis, and countless other applications. In order to study the proteome, we rely heavily on analytical chemistry: specifically separations coupled with mass spectrometry.</p>
-<p>The <a href="https://en.wikipedia.org/wiki/Bottom-up_proteomics">general workflow</a> for a proteomics experiment involves digesting protein into smaller chunks, called peptides, separating these peptides using <a href="https://en.wikipedia.org/wiki/High-performance_liquid_chromatography">liquid chromatography</a> or <a href="https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Capillary_Electrophoresis">capillary electrophoresis</a>, and injecting them into a series of <a href="https://en.wikipedia.org/wiki/Mass_spectrometry">mass spectrometers</a> which can measure the mass/charge ratio of intact and fragmented peptides. From this information computers can match individual peptides to proteins, and based on signal intensity, the proteins can be quantified.</p>
-<div class="figure">
-<img src="Workflows_BottomUpProt-2.jpg" alt="" />
-<p class="caption"><em>Proteomics Workflow (Thermo Fisher, planetorbitrap.com)</em></p>
+<div id="accessing-r" class="section level2">
+<h2>Accessing R</h2>
+<div id="rstudio" class="section level3">
+<h3>RStudio</h3>
+<p>RStudio is the best way to use R. It is free to download <a href="https://www.rstudio.com/products/rstudio/download/">here</a>. Simply select the free version, and download the appropriate version for your computer.</p>
 </div>
-<p>As we know, proteins are polymers of individual amino acids, and it is this amino acid sequence (primary structure) that ultimately leads to higher orders of structure and function. Peptides are smaller polymers of amino acids (generally 4-50 residues in length) which (in this context) originate from digested protein.</p>
-<div class="figure">
-<img src="Beefy_meaty_peptide.svg.png" style="width:75.0%" alt="" />
-<p class="caption"><em>Example Peptide Structure (Wikipedia)</em></p>
+<div id="rstudio-cloud" class="section level3">
+<h3>RStudio Cloud</h3>
+<p>If you don’t want to download RStudio to your computer, you can use a limitted online version by making an account on <a href="https://rstudio.cloud/">RStudio Cloud</a>. The free version of RStudio Cloud only allows for 15 hours of time per month, but that will be plenty of time to complete this project</p>
 </div>
-<p>In proteomics, peptides are the analyte of interest, and so we are interested in several of the chemical attributes that they posess: mass, charge, and mass/charge ratio. This last attribute is especially interesting because it is the basis of identification in mass spectrometry, and the basis of separation in capillary electrophoresis. Luckily, both mass and chage of a peptide can be thought of as the summation of the individual masses and charges of the amino acids that make up the peptide. Because there are <a href="https://www.sigmaaldrich.com/life-science/metabolomics/learning-center/amino-acid-reference-chart.html">20 common amino acids</a>, calculating and adding togther their masses or charges becomes a manageable task for a computer to do quickly.</p>
-<p><a href="https://www.peptidesynthetics.co.uk/tools/">There</a> <a href="https://web.expasy.org/peptide_mass/">are</a> <a href="http://rna.rega.kuleuven.be/masspec/pepcalc.htm">many</a> <a href="http://db.systemsbiology.net:8080/proteomicsToolkit/FragIonServlet.html">online</a> <a href="http://www.colby.edu/chemistry/NMR/scripts/peptide.html">tools</a> that can do this type of calculation. While definitely useful, these are not always ideal from an educational standpoint for several reasons. First, they generally work as ‘black boxes’ where the user puts in a peptide, and numbers are returned. It isn’t clear to the user how these values were calculated, and therefore the chemistry behind these calculations isn’t fully explored. Second, they can only handle one peptide at a time, or in some cases, one specific protein at a time. In my routine proteomic analysis, I will often have lists of thousands of peptides, and individually using these tools to calculate all of their charges becomes impractical.</p>
-<p>Learning how to use code as a tool for scientific research often seems like a daunting task. There are many publications that include a phrase along the lines of, “The fasta files were digested in silico and probability scores were assigned using an in-house python script”. For many students, and even more experienced scientists, this ‘in-house’ script is a mystery that is conceptually out of reach. However, I believe that there is a false dichotomy of ‘knowing programming’ or ‘not knowing programming’ that is prevalent in chemistry, and wet-lab science in general. While understanding very basic coding principles like variables, loops, and functions may be prerequisite information, well-written code can be implemented by almost anyone who is familiar with the underlying scientific principles. In all peer-reviewed journals, these ‘in-house’ scripts should be published as supporting information, or availible on a platform like git-hub. With only a small amount of experience with code and a good search engine, any researcher should be able to take these availible resourses and apply them to their own questions and data. The goal of this tutorial is to show students that they can take code and use it to answer questions that have real scientific applications, which is an invaluable skill in a research career.</p>
+</div>
+<div id="navigating-rstudio" class="section level2">
+<h2>Navigating RStudio</h2>
+<p>When opening up RStudio, the first thing to do is to open a ‘.R’ file. This is just a text file that is formatted for working with R. To do this, go to:</p>
+<pre><code>File &gt; New File &gt; R script</code></pre>
+<p>At this point there should be four windows open, and it will look something like this:<br />
+<img src="RStudio%20Screenshot.png" alt="RStudio Screenshot" /><br />
+The top right window is the ‘environment’ which is where your variables will show up. You don’t have to worry too much about this.<br />
+The bottom right window is a file explorer. This can be very useful, but you won’t use it in this project much. The top left is the text editor. This is where you can copy and pase blocks of code that you want to use and maybe edit later. Here is a zoomed in screenshot of this window:<br />
+<img src="File%20editor%20screenshot.png" /> To run code here, highlight what you want to run and then click the ‘Run’ button in the top right corner of the window. Alternatively, you can run by pressing ctrl+enter.<br />
+The bottom left is the consol, which is where all the R code is executed, and any outputs are printed. If you run code from the editor (as described above), it will be executed here. Alternatively, you can run single lines of code here by just typeing it out. Here is a a zoomed in screenshot of the console:<br />
+<img src="Console%20screenshot.png" /> You’ll see that I have run a function <code>pep_charge("DIAK", pH = 10)</code> and got a printout with the result. I’ve typed but not run a function called <code>pep_mass()</code>. You run code from the consol by simply pressing enter.</p>
+</div>
+<div id="helpful-links" class="section level2">
+<h2>Helpful links</h2>
+<p>There are so many resources for R and R studio. Here are a couple of good links if you are stuck or want to learn more: <a href="https://youtu.be/jWEI-KKrT0Y">installing R and installing and using packages</a></p>
+</div>
 
 
 

@@ -11,7 +11,7 @@
 
 
 
-<title>First observations</title>
+<title>Background</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -305,54 +305,27 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">First observations</h1>
+<h1 class="title toc-ignore">Background</h1>
 
 </div>
 
 
-<p>With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things do. And you can continue to use this website as a reference after the tutorial, along with <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html"><strong>RStudio’s instructions for R Markdown websites</strong></a>.</p>
-<p>We’ll start our exploration online looking at the website architecture, then we’ll clone the repo to our local computers. Locally, we will explore further by going back and forth between the R Markdown editor and built webpages, and make modifications. Pushing to Github will make our modifications live!</p>
-<hr />
-<div id="exploring-online" class="section level2">
-<h2>Exploring online</h2>
-<p><br></p>
-<!---this is an html comment that works in Markdown --->
-<!--- I use the <br> html tag to force carriage returns in the text--->
-<div id="the-website-itself" class="section level3">
-<h3>The website itself</h3>
-<p>This website has 5 pages:</p>
-<ul>
-<li>Home</li>
-<li>First Observations</li>
-<li>Basic Workflow</li>
-<li>Getting Sophisticated</li>
-<li>Your Turn</li>
-</ul>
-<p><code>github.io</code> means that there is a Github repo behind this website, and we also know the username and repo name:</p>
-<p><strong><a href="http://jules32.github.io/rmarkdown-website-tutorial" class="uri">http://jules32.github.io/rmarkdown-website-tutorial</a></strong> &lt;=&gt; <strong><a href="https://github.com/jules32/rmarkdown-website-tutorial" class="uri">https://github.com/jules32/rmarkdown-website-tutorial</a></strong></p>
-<p>(Note: you can have github websites point to different urls if you don’t want the <code>github.io</code>.)</p>
-<p><br></p>
+<div id="background" class="section level1">
+<h1>Background</h1>
+<p>Proteomics is the study of the entire set of proteins that exist in a system (a population, an organism, an organ, a cell, etc.). Identifying and quantifying all these proteins can be used for genetic research, biomarker discovery, population analysis, and countless other applications. In order to study the proteome, we rely heavily on analytical chemistry: specifically separations coupled with mass spectrometry.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Bottom-up_proteomics">general workflow</a> for a proteomics experiment involves digesting protein into smaller chunks, called peptides, separating these peptides using <a href="https://en.wikipedia.org/wiki/High-performance_liquid_chromatography">liquid chromatography</a> or <a href="https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Capillary_Electrophoresis">capillary electrophoresis</a>, and injecting them into a series of <a href="https://en.wikipedia.org/wiki/Mass_spectrometry">mass spectrometers</a> which can measure the mass/charge ratio of intact and fragmented peptides. From this information computers can match individual peptides to proteins, and based on signal intensity, the proteins can be quantified.</p>
+<div class="figure">
+<img src="Workflows_BottomUpProt-2.jpg" alt="" />
+<p class="caption"><em>Proteomics Workflow (Thermo Fisher, planetorbitrap.com)</em></p>
 </div>
-<div id="the-websites-repo" class="section level3">
-<h3>The website’s repo</h3>
-<p>Let’s go to <strong><a href="https://github.com/jules32/rmarkdown-website-tutorial" class="uri">https://github.com/jules32/rmarkdown-website-tutorial</a></strong>.</p>
-<p><strong>First, note the <code>gh-pages</code> branch</strong> - this is critical for building free webpages. You can usually name branches whatever you want, but the <code>gh-pages</code> name means it can be built as a website. <a href="https://help.github.com/articles/setting-the-default-branch/">I set it as my default branch</a>.</p>
-<p><img src="images/gh-pages.png" /></p>
-<p><br></p>
-<p><strong>Now let’s look at the filenames</strong>. We can recognize the names of the webpages we’ve seen, and there is also a <code>_site.yml</code> file, which is the website’s configuration file. The simplest website possible would have 2 files only: <code>_site.yml</code> and <code>index.Rmd</code></p>
-<p><img src="https://docs.google.com/drawings/d/1jnXfeJ3i-fwd-t49S5FyeMAX3cJSoCYbyZLLTqFZd7w/pub?w=960&amp;h=720" /></p>
-<p><br></p>
+<p>As we know, proteins are polymers of individual amino acids, and it is this amino acid sequence (primary structure) that ultimately leads to higher orders of structure and function. Peptides are smaller polymers of amino acids (generally 4-50 residues in length) which (in this context) originate from digested protein.</p>
+<div class="figure">
+<img src="Beefy_meaty_peptide.svg.png" style="width:75.0%" alt="" />
+<p class="caption"><em>Example Peptide Structure (Wikipedia)</em></p>
 </div>
-</div>
-<div id="fork-to-your-account-clone-to-your-computer" class="section level2">
-<h2>Fork to your account, clone to your computer</h2>
-<p>Let’s start digging deeper and playing with this.</p>
-<ol style="list-style-type: decimal">
-<li><p>Fork the <a href="https://github.com/jules32/rmarkdown-website-tutorial">jules32/rmarkdown-website-tutorial</a> repo into your own account.</p></li>
-<li><p>Edit the URL for the website by replacing <code>jules32</code> with your GitHub username</p></li>
-<li><p>Clone to your local computer using RStudio (preferred) the <a href="https://desktop.github.com/">Desktop App</a>, or the command line.</p></li>
-</ol>
-<p><img src="https://docs.google.com/drawings/d/1yy2VFQy4QqxfOzt-XtTSNA91qoCI7jPo0ob7Pm89SBg/pub?w=960&amp;h=720" /></p>
+<p>In proteomics, peptides are the analyte of interest, and so we are interested in several of the chemical attributes that they posess: mass, charge, and mass/charge ratio. This last attribute is especially interesting because it is the basis of identification in mass spectrometry, and the basis of separation in capillary electrophoresis. Luckily, both mass and chage of a peptide can be thought of as the summation of the individual masses and charges of the amino acids that make up the peptide. Because there are <a href="https://www.sigmaaldrich.com/life-science/metabolomics/learning-center/amino-acid-reference-chart.html">20 common amino acids</a>, calculating and adding togther their masses or charges becomes a manageable task for a computer to do quickly.</p>
+<p><a href="https://www.peptidesynthetics.co.uk/tools/">There</a> <a href="https://web.expasy.org/peptide_mass/">are</a> <a href="http://rna.rega.kuleuven.be/masspec/pepcalc.htm">many</a> <a href="http://db.systemsbiology.net:8080/proteomicsToolkit/FragIonServlet.html">online</a> <a href="http://www.colby.edu/chemistry/NMR/scripts/peptide.html">tools</a> that can do this type of calculation. While definitely useful, these are not always ideal from an educational standpoint for several reasons. First, they generally work as ‘black boxes’ where the user puts in a peptide, and numbers are returned. It isn’t clear to the user how these values were calculated, and therefore the chemistry behind these calculations isn’t fully explored. Second, they can only handle one peptide at a time, or in some cases, one specific protein at a time. In my routine proteomic analysis, I will often have lists of thousands of peptides, and individually using these tools to calculate all of their charges becomes impractical.</p>
+<p>Learning how to use code as a tool for scientific research often seems like a daunting task. There are many publications that include a phrase along the lines of, “The fasta files were digested in silico and probability scores were assigned using an in-house python script”. For many students, and even more experienced scientists, this ‘in-house’ script is a mystery that is conceptually out of reach. However, I believe that there is a false dichotomy of ‘knowing programming’ or ‘not knowing programming’ that is prevalent in chemistry, and wet-lab science in general. While understanding very basic coding principles like variables, loops, and functions may be prerequisite information, well-written code can be implemented by almost anyone who is familiar with the underlying scientific principles. In all peer-reviewed journals, these ‘in-house’ scripts should be published as supporting information, or availible on a platform like git-hub. With only a small amount of experience with code and a good search engine, any researcher should be able to take these availible resourses and apply them to their own questions and data. The goal of this tutorial is to show students that they can take code and use it to answer questions that have real scientific applications, which is an invaluable skill in a research career.</p>
 </div>
 
 

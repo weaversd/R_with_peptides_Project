@@ -11,7 +11,7 @@
 
 
 
-<title>Basic workflow</title>
+<title>Step 3</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -285,13 +285,16 @@ $(document).ready(function () {
   <a href="Background.html">Background</a>
 </li>
 <li>
-  <a href="basic_workflow.html">Basic Workflow</a>
+  <a href="Step_1.html">Step 1</a>
 </li>
 <li>
-  <a href="getting_sophisticated.html">Getting Sophisticated</a>
+  <a href="Step_2.html">Step 2</a>
 </li>
 <li>
-  <a href="your_turn.html">Your Turn</a>
+  <a href="Step_3.html">Step 3</a>
+</li>
+<li>
+  <a href="Step_4.html">Step 4</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -305,92 +308,56 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Basic workflow</h1>
+<h1 class="title toc-ignore">Step 3</h1>
 
 </div>
 
 
-<p>Building websites uses the same reproducible workflow you can use for your analyses and collaborations. It is very iterative. You can do it all from RStudio, with a combination of clicking or typing commands as you feel comfortable.</p>
-<ol style="list-style-type: decimal">
-<li>add content (text, code, images, etc) in an RMarkdown file</li>
-<li>knit the RMarkdown file to view</li>
-<li>update <code>_site.yml</code> (perhaps, if it is a new file)</li>
-<li>build the website
-<ul>
-<li>Build tab &gt; Build Website or</li>
-<li>in the console: <code>rmarkdown::render_site()</code></li>
-</ul></li>
-<li>repeat, repeat, repeat</li>
-<li>commit and push your website to github, it’s live!</li>
-<li>repeat all of the above</li>
-</ol>
-<p>Let’s see what this looks like. We are not going to have time to learn all of the capabilities of R Markdown today, but the purpose here is to give you familiarlity with the workflow and confidence to explore further on your own.</p>
-<hr />
-<div id="rstudio-landscape" class="section level2">
-<h2>RStudio landscape</h2>
-<p>Here is what you’ll see when you’ve opened our <code>rmarkdown-website-tutorial</code> project in RStudio.</p>
-<p>The ‘Build tab’ in the top right corner will show up once RStudio knows you’re making a website, don’t worry if you don’t have it yet.</p>
-<p>If we open <code>index.Rmd</code> we will see that it’s all text with a bit of formatting. This top part is called the ‘front matter’.</p>
-<p><img src="https://docs.google.com/drawings/d/1ff_I5VJAtmF0FYZOIFE6ZW_-8sfwfoOij2AR0eyFs00/pub?w=960&amp;h=720" /></p>
-<p><br></p>
+<div id="step-4-further-applications---peptide-summary-function-ph-vs-charge-plot-isoelectric-point-calculator" class="section level2">
+<h2>Step 4: Further applications - Peptide summary function, pH vs charge plot, Isoelectric point calculator</h2>
+<p>For steps 1-3, hopefully most students were able to follow along and complete the objectives. The point of this project is to show that even without an extensive knowledge of coding, it is possible to take published scripts and functions and use them for your own data, even making simple modifications. Step 4 involves writing your own code from scratch, which I acknowledge takes more experience and more extensive background knowledge with a programming language. However, there are many excellent free resources online for diving into this sort of challenge. The best way to start out coding from scratch is to identify a question and work at it until a solution presents itself. In this section I will present several ‘questions’ that relate to the problems discussed in steps 1-3. There are many ways to successfully complete these challenges, but I will possible post solutions for each one here on git-hub. They are roughly in order of difficulty from easiest to hardest.</p>
+<div id="exercise-4a" class="section level3">
+<h3>Exercise (4a)</h3>
+<p>We now have functions that calculate the charge of a peptide, the mass of a peptide, the m/z at a given pH of a peptide, and the expected m/z of a peptide in a MALDI spectrum. It would be helpful if we had a function that could summarize all of them. The goal for this function is to take a peptide and a pH, and print out all of the attributes we can calculate. Here is a framework with which to write your function.</p>
+<pre class="r"><code>peptide_summary &lt;- function(peptide, pH){
+  
+  #Your code goes here
+  
+}</code></pre>
 </div>
-<div id="markdown-syntax" class="section level2">
-<h2>Markdown Syntax</h2>
-<p>Now let’s look explore the first few webpages/R Markdown files to get familiar with Markdown syntax:</p>
+<div id="exercise-4b" class="section level3">
+<h3>Exercise (4b)</h3>
+<p>We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isolectric point of a peptide, or prediciting its behaivior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK: <img src="DIAK%20ph%20charge%20plot.png" alt="DIAK charge vs pH plot" /> This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function <code>plot()</code> like this <code>plot(pH_list, charge_list)</code>. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.</p>
+<p>Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck</p>
+<pre><code>Pseudo code:
+
+pH is a list of 1000 pH values from 0 to 14
+charge is a list of 1000 values
+
+for each value in list pH,
+  caluclate the charge for peptide &quot;DIAK&quot; and store it in the list charge
+  
+plot pH and charge</code></pre>
+<pre><code>Helpful functions:
+seq(x, y, z) creates a vector of numbers that goes from x to y, incrementing by z
+rep(a, b) creates a vector of length b, and each value is a
+length(x) returns the length of a vector or list x</code></pre>
+</div>
+<div id="exercise-4c" class="section level3">
+<h3>Exercise (4c)</h3>
+<p>Isoelectric point is the point that a protein or peptide has a net charge of 0. We can estimate this based on the graph we created in Exercise 4b (for DIAK it is approximately 6.3) but it would be helpful if we were able to create a function that calculated this for us. Here is a framework for the function:</p>
+<pre class="r"><code>pep_pI &lt;- function(peptide){
+  
+  #your code goes here
+  
+}</code></pre>
+<p><a href="https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9">A paper from Dr. Kozlowski</a> nicely presents a methodology to do this. The general idea is to start at an ‘average’ pH (lets use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider, which you can make your own decisions on:</p>
 <ul>
-<li><code>index.Rmd</code></li>
-<li><code>first_observations.Rmd</code></li>
-<li><code>basic_workflow.Rmd</code></li>
+<li>How far do we move from the previous pH value to the new one?</li>
+<li>Do we do this an arbitrary number of times (in the paper, Dr. Kozlowski argues that 12 is enough to obtain accurate results)? OR</li>
+<li>Do we do this until the charge is <em>close</em> enough to zero?</li>
 </ul>
-<p>These first few pages have simple formatting (<strong>bold</strong>, <em>italics</em>), headers, bullet points, links, and images. These are the majority of things you’ll do in Markdown. See a full list of options at <a href="http://rmarkdown.rstudio.com/authoring_basics.html"><strong>RStudio’s Markdown basics</strong></a> or go to Help &gt; Markdown Quick Reference. Also, check out their <a href="https://www.rstudio.com/resources/cheatsheets/">R Markdown cheatsheet</a>.</p>
-<p>Notice that you can insert images locally (from the /images folder), or from online e.g. Google Drawings!</p>
-<p>From <a href="http://rmarkdown.rstudio.com/lesson-8.html">rmarkdown.rstudio.com lesson 8</a>:</p>
-<p><img src="images/markdown_rmarkdownlesson-8.png" /></p>
-<p><br></p>
-</div>
-<div id="build-your-website" class="section level2">
-<h2>Build your website!</h2>
-<p>Let’s make a few changes to this file and knit it to inspect. Try adding some new Markdown formatted text.</p>
-<p>Also, now is a good time to make sure you have the the Build tab; you may need to install <code>rmarkdown</code> if you haven’t already (below).</p>
-<p>Click <code>Build Website</code> in the Build tab (or type <code>rmarkdown::render_site()</code> in the Console) and inspect your Website! Commit and push to see it live online.</p>
-<p><br></p>
-</div>
-<div id="other" class="section level2">
-<h2>Other</h2>
-<div id="tips-for-learning-markdown" class="section level3">
-<h3>Tips for learning Markdown</h3>
-<p><strong>In Markdown, spaces can be tricky</strong>.<br />
-To start a new line here, I needed 2 spaces after <code>tricky.</code> above. As you can see, a simple carriage return doesn’t cut it.</p>
-<p>To force carriage returns, use the <code>&lt;br&gt;</code> html tag…</p>
-<p><br> <br></p>
-<p>…like this.</p>
-<p>Also, this bulleted list won’t render properly: - because there is no carriage return between the line above - and where the bullet points start.</p>
-<p>To have the bullet points render nicely:</p>
-<ul>
-<li>you must have a full blank line</li>
-<li>following “To have the bullet points render nicely:”</li>
-</ul>
-<p><br></p>
-</div>
-<div id="building-a-website-from-scratch" class="section level3">
-<h3>Building a website from scratch</h3>
-<p>If you want to build a website from scratch (i.e. not fork this one), follow RStudio’s instructions here: <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.html">R Markdown Websites</a>.</p>
-<p><strong>Troubleshooting:</strong></p>
-<p>We recently had trouble having our nicely built website display online: the website’s url only showed the README (nicely formatted though!). We solved it by adding:</p>
-<pre><code>output_dir: &quot;.&quot;</code></pre>
-<p>to the <code>_site.yml</code>. This knits all the .html files in place in the home directory instead of in a <code>_site</code> folder, and this solved our problem!</p>
-</div>
-<div id="install-the-rmarkdown-package" class="section level3">
-<h3>Install the <code>rmarkdown</code> package</h3>
-<p>You can do this by:</p>
-<ol style="list-style-type: decimal">
-<li><p>paste this code in the Console and hit enter</p>
-<pre><code>install.packages(&#39;rmarkdown&#39;)
-library(rmarkdown) </code></pre></li>
-<li><p>from the menu bar select: Tools &gt; Install Packages… “rmarkdown”</p></li>
-<li><p>from the bottom right pane, click on the Packages tab, click on Install, “rmarkdown”</p></li>
-</ol>
-<!---note that the ``` ``` syntax above renders text as a code-looking block--->
+<p>An easy answer to the first question is to simply divide the search area in half each time. For example, suppose we try pH 7 and get a negative charge value, we know the pI will be lower than pH 7. So then we divide the pH range 0-7 in half, and try again at 3.5. This time, the charge is positive, so we know that the pH is higher than 3.5, but lower than 7, so we divide this range in half and try again at 5.25. We continue this process either for a certain number of iterations, or until the charge is close enough to zero. Good luck!</p>
 </div>
 </div>
 

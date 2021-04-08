@@ -11,7 +11,7 @@
 
 
 
-<title>Basic workflow</title>
+<title>Background</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -285,13 +285,16 @@ $(document).ready(function () {
   <a href="Background.html">Background</a>
 </li>
 <li>
-  <a href="basic_workflow.html">Basic Workflow</a>
+  <a href="Step_1.html">Step 1</a>
 </li>
 <li>
-  <a href="getting_sophisticated.html">Getting Sophisticated</a>
+  <a href="Step_2.html">Step 2</a>
 </li>
 <li>
-  <a href="your_turn.html">Your Turn</a>
+  <a href="Step_3.html">Step 3</a>
+</li>
+<li>
+  <a href="Step_4.html">Step 4</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -305,94 +308,25 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Basic workflow</h1>
+<h1 class="title toc-ignore">Background</h1>
 
 </div>
 
 
-<p>Building websites uses the same reproducible workflow you can use for your analyses and collaborations. It is very iterative. You can do it all from RStudio, with a combination of clicking or typing commands as you feel comfortable.</p>
-<ol style="list-style-type: decimal">
-<li>add content (text, code, images, etc) in an RMarkdown file</li>
-<li>knit the RMarkdown file to view</li>
-<li>update <code>_site.yml</code> (perhaps, if it is a new file)</li>
-<li>build the website
-<ul>
-<li>Build tab &gt; Build Website or</li>
-<li>in the console: <code>rmarkdown::render_site()</code></li>
-</ul></li>
-<li>repeat, repeat, repeat</li>
-<li>commit and push your website to github, it’s live!</li>
-<li>repeat all of the above</li>
-</ol>
-<p>Let’s see what this looks like. We are not going to have time to learn all of the capabilities of R Markdown today, but the purpose here is to give you familiarlity with the workflow and confidence to explore further on your own.</p>
-<hr />
-<div id="rstudio-landscape" class="section level2">
-<h2>RStudio landscape</h2>
-<p>Here is what you’ll see when you’ve opened our <code>rmarkdown-website-tutorial</code> project in RStudio.</p>
-<p>The ‘Build tab’ in the top right corner will show up once RStudio knows you’re making a website, don’t worry if you don’t have it yet.</p>
-<p>If we open <code>index.Rmd</code> we will see that it’s all text with a bit of formatting. This top part is called the ‘front matter’.</p>
-<p><img src="https://docs.google.com/drawings/d/1ff_I5VJAtmF0FYZOIFE6ZW_-8sfwfoOij2AR0eyFs00/pub?w=960&amp;h=720" /></p>
-<p><br></p>
+<p>Proteomics is the study of the entire set of proteins that exist in a system (a population, an organism, an organ, a cell, etc.). Identifying and quantifying all these proteins can be used for genetic research, biomarker discovery, population analysis, and countless other applications. In order to study the proteome, we rely heavily on analytical chemistry: specifically separations coupled with mass spectrometry.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Bottom-up_proteomics">general workflow</a> for a proteomics experiment involves digesting protein into smaller chunks, called peptides, separating these peptides using <a href="https://en.wikipedia.org/wiki/High-performance_liquid_chromatography">liquid chromatography</a> or <a href="https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Capillary_Electrophoresis">capillary electrophoresis</a>, and injecting them into a series of <a href="https://en.wikipedia.org/wiki/Mass_spectrometry">mass spectrometers</a> which can measure the mass/charge ratio of intact and fragmented peptides. From this information computers can match individual peptides to proteins, and based on signal intensity, the proteins can be quantified.</p>
+<div class="figure">
+<img src="Workflows_BottomUpProt-2.jpg" alt="" />
+<p class="caption"><em>Proteomics Workflow (Thermo Fisher, planetorbitrap.com)</em></p>
 </div>
-<div id="markdown-syntax" class="section level2">
-<h2>Markdown Syntax</h2>
-<p>Now let’s look explore the first few webpages/R Markdown files to get familiar with Markdown syntax:</p>
-<ul>
-<li><code>index.Rmd</code></li>
-<li><code>first_observations.Rmd</code></li>
-<li><code>basic_workflow.Rmd</code></li>
-</ul>
-<p>These first few pages have simple formatting (<strong>bold</strong>, <em>italics</em>), headers, bullet points, links, and images. These are the majority of things you’ll do in Markdown. See a full list of options at <a href="http://rmarkdown.rstudio.com/authoring_basics.html"><strong>RStudio’s Markdown basics</strong></a> or go to Help &gt; Markdown Quick Reference. Also, check out their <a href="https://www.rstudio.com/resources/cheatsheets/">R Markdown cheatsheet</a>.</p>
-<p>Notice that you can insert images locally (from the /images folder), or from online e.g. Google Drawings!</p>
-<p>From <a href="http://rmarkdown.rstudio.com/lesson-8.html">rmarkdown.rstudio.com lesson 8</a>:</p>
-<p><img src="images/markdown_rmarkdownlesson-8.png" /></p>
-<p><br></p>
+<p>As we know, proteins are polymers of individual amino acids, and it is this amino acid sequence (primary structure) that ultimately leads to higher orders of structure and function. Peptides are smaller polymers of amino acids (generally 4-50 residues in length) which (in this context) originate from digested protein.</p>
+<div class="figure">
+<img src="Beefy_meaty_peptide.svg.png" style="width:75.0%" alt="" />
+<p class="caption"><em>Example Peptide Structure (Wikipedia)</em></p>
 </div>
-<div id="build-your-website" class="section level2">
-<h2>Build your website!</h2>
-<p>Let’s make a few changes to this file and knit it to inspect. Try adding some new Markdown formatted text.</p>
-<p>Also, now is a good time to make sure you have the the Build tab; you may need to install <code>rmarkdown</code> if you haven’t already (below).</p>
-<p>Click <code>Build Website</code> in the Build tab (or type <code>rmarkdown::render_site()</code> in the Console) and inspect your Website! Commit and push to see it live online.</p>
-<p><br></p>
-</div>
-<div id="other" class="section level2">
-<h2>Other</h2>
-<div id="tips-for-learning-markdown" class="section level3">
-<h3>Tips for learning Markdown</h3>
-<p><strong>In Markdown, spaces can be tricky</strong>.<br />
-To start a new line here, I needed 2 spaces after <code>tricky.</code> above. As you can see, a simple carriage return doesn’t cut it.</p>
-<p>To force carriage returns, use the <code>&lt;br&gt;</code> html tag…</p>
-<p><br> <br></p>
-<p>…like this.</p>
-<p>Also, this bulleted list won’t render properly: - because there is no carriage return between the line above - and where the bullet points start.</p>
-<p>To have the bullet points render nicely:</p>
-<ul>
-<li>you must have a full blank line</li>
-<li>following “To have the bullet points render nicely:”</li>
-</ul>
-<p><br></p>
-</div>
-<div id="building-a-website-from-scratch" class="section level3">
-<h3>Building a website from scratch</h3>
-<p>If you want to build a website from scratch (i.e. not fork this one), follow RStudio’s instructions here: <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.html">R Markdown Websites</a>.</p>
-<p><strong>Troubleshooting:</strong></p>
-<p>We recently had trouble having our nicely built website display online: the website’s url only showed the README (nicely formatted though!). We solved it by adding:</p>
-<pre><code>output_dir: &quot;.&quot;</code></pre>
-<p>to the <code>_site.yml</code>. This knits all the .html files in place in the home directory instead of in a <code>_site</code> folder, and this solved our problem!</p>
-</div>
-<div id="install-the-rmarkdown-package" class="section level3">
-<h3>Install the <code>rmarkdown</code> package</h3>
-<p>You can do this by:</p>
-<ol style="list-style-type: decimal">
-<li><p>paste this code in the Console and hit enter</p>
-<pre><code>install.packages(&#39;rmarkdown&#39;)
-library(rmarkdown) </code></pre></li>
-<li><p>from the menu bar select: Tools &gt; Install Packages… “rmarkdown”</p></li>
-<li><p>from the bottom right pane, click on the Packages tab, click on Install, “rmarkdown”</p></li>
-</ol>
-<!---note that the ``` ``` syntax above renders text as a code-looking block--->
-</div>
-</div>
+<p>In proteomics, peptides are the analyte of interest, and so we are interested in several of the chemical attributes that they posess: mass, charge, and mass/charge ratio. This last attribute is especially interesting because it is the basis of identification in mass spectrometry, and the basis of separation in capillary electrophoresis. Luckily, both mass and chage of a peptide can be thought of as the summation of the individual masses and charges of the amino acids that make up the peptide. Because there are <a href="https://www.sigmaaldrich.com/life-science/metabolomics/learning-center/amino-acid-reference-chart.html">20 common amino acids</a>, calculating and adding togther their masses or charges becomes a manageable task for a computer to do quickly.</p>
+<p><a href="https://www.peptidesynthetics.co.uk/tools/">There</a> <a href="https://web.expasy.org/peptide_mass/">are</a> <a href="http://rna.rega.kuleuven.be/masspec/pepcalc.htm">many</a> <a href="http://db.systemsbiology.net:8080/proteomicsToolkit/FragIonServlet.html">online</a> <a href="http://www.colby.edu/chemistry/NMR/scripts/peptide.html">tools</a> that can do this type of calculation. While definitely useful, these are not always ideal from an educational standpoint for several reasons. First, they generally work as ‘black boxes’ where the user puts in a peptide, and numbers are returned. It isn’t clear to the user how these values were calculated, and therefore the chemistry behind these calculations isn’t fully explored. Second, they can only handle one peptide at a time, or in some cases, one specific protein at a time. In my routine proteomic analysis, I will often have lists of thousands of peptides, and individually using these tools to calculate all of their charges becomes impractical.</p>
+<p>Learning how to use code as a tool for scientific research often seems like a daunting task. There are many publications that include a phrase along the lines of, “The fasta files were digested in silico and probability scores were assigned using an in-house python script”. For many students, and even more experienced scientists, this ‘in-house’ script is a mystery that is conceptually out of reach. However, I believe that there is a false dichotomy of ‘knowing programming’ or ‘not knowing programming’ that is prevalent in chemistry, and wet-lab science in general. While understanding very basic coding principles like variables, loops, and functions may be prerequisite information, well-written code can be implemented by almost anyone who is familiar with the underlying scientific principles. In all peer-reviewed journals, these ‘in-house’ scripts should be published as supporting information, or availible on a platform like git-hub. With only a small amount of experience with code and a good search engine, any researcher should be able to take these availible resourses and apply them to their own questions and data. The goal of this tutorial is to show students that they can take code and use it to answer questions that have real scientific applications, which is an invaluable skill in a research career.</p>
 
 
 

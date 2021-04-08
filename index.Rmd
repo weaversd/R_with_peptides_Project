@@ -1,30 +1,18 @@
 ---
-title: "Making free websites with RStudio's R Markdown"
-author:  "[Julie Lowndes](https://github.com/jules32) at [NCEAS](https://www.nceas.ucsb.edu/), 12/14/16"
+title: "Peptide Calcualtions with R"
+author:  "[Simon Weaver](https://weaversd.github.io/), Bio-analytical Chemistry PhD student at the University of Notre Dame"
 output:
-  html_document:
-    fig_width: 1
+  html_document
 ---
 
-----
 
-It's possible to create well-designed websites for free using [RStudio's R Markdown](http://rmarkdown.rstudio.com/) and hosting them on [Github](http://github.com). This is very new and incredibly cool. It is a really powerful way to communicate science using the same reproducible workflow you use for your analyses and collaborations.
+# Abstract
 
-***Creating websites with R Markdown can be done without knowing R or HTML, CSS, etc,*** and that's where we'll start. However, R Markdown integrates with these tools so the more you know the more complex and beautiful your website can be. This tutorial borrows heavily from a lot of great tutorials and resources you should check out too -- there are links throughout. 
+Peptides are an important analyte for proteomics, and calculating their mass, charge, and mass/charge ratio is crucial for experimental design and data interpretation. While there are multiple online tools for calculating these attributes for a given peptide, they are generally 'black boxes' and require no understanding of the acid/base chemistry or the chemical structure of the peptide. They also are not generally customizable, and are not made for automated analysis or handling many individual peptides at once. By using R, we will write functions from scratch to do these calculations on peptides, and connect the dots from chemistry, to math, to code, to scientific conclusion. As coding becomes more integrated into every type of scientific laboratory, it is essential to include in curriculum examples of the powerful ways that programming can be applied to basic chemistry principles to streamline data analysis.
 
-The best way to learn is to follow along with your own laptop, but all are welcome. We'll spend half the time with the tutorial and half the time for you to work on your own website and get help. If you bring your laptop please do this beforehand: 
+# Project Overview
 
-1. install [RStudio](https://www.rstudio.com/products/rstudio/download/)
-1. create a [GitHub]((http://github.com)) account ([advice](http://happygitwithr.com/github-acct.html))
-1. set up your computer to talk to GitHub
-    - have RStudio linked directly (preferred) ([instructions sections 8-14](http://happygitwithr.com/hello-git.html))
-    - or install the [Desktop App](https://desktop.github.com/)
-    - or be familiar with git commands for the command line ([tutorial](https://try.github.io/levels/1/challenges/1))
+There are four distinct levels of comfort that you can have with applying code to data. The lowest level is simply to take a script or function that is designed to perform some action (plotting a graph, calculating a pH, etc) and use it to perform that action on an example dataset while following step by step instructions. The second level is to take a script or function and use it on your own original data that hasn't been analyzed before. The next level up would be to take the script or function, and make modifications that tweak what the purpose of the code is. This could be a minor tweak or a major tweak. For example, this could be changing the output of the data from a table to a plot, or taking a pattern matching algorithm designed for DNA sequences and making it work with protein sequences as well. The final level is to write your own code from scratch. The project outlined here will go through all four of these levels, and depending on the experience level of the audience, these different steps can be combined in any number of ways. No matter what level the students are working with, the exposure to programming, and the application of code to scientific questions is a necessary experience to have.
 
-----
+As described in the background section, the scientific question at hand is to calculate charge, mass, and mass/charge ratio for peptides. We will focus on calculating charge for the first several steps, and then move on to mass and mass/charge as more challenging assignments. The first step, (simply implementing code while following instructions) deals with calculating the charge on a peptide. [An excellent article by Dr. Paul A. Sims](https://pubs.acs.org/doi/abs/10.1021/ed100232j) outlines the theory behind this calculation, and the equations that are needed. The second step involves applying this charge calculation to a real world example: Ion Exchange Chromatography, and has the students predict the order that peptides will elute from a column. The third step is divided into two parts, a and b. In 'a', students will modify a `for` loop to obtain charge values for a long list of peptides. In part 'b', a function to calculate mass and mass/charge ratio is given, and students must edit these functions to create a function that predicts m/z for a peptide in MALDI. Finally, the forth step sets forward several questions related to peptide charge and mass for the student to answer using their own ideas and original code.
 
-
-**Examples:**
-
-We have been using R Markdown for the Ocean Health Index:  [**ohi-science.org/ohi-global**](http://ohi-science.org/ohi-global).  
-And R Markdown is much more than just websites -- here's a [**one-minute video about R Markdown**](http://rmarkdown.rstudio.com/lesson-1.html) to get you excited. 

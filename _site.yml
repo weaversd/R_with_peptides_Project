@@ -1,19 +1,19 @@
-name: "R Markdown Websites Tutorial"
+name: "Peptide Calculations with R"
 navbar:
   title: "HOME"
   left:
-    - text: "First Observations"
-      href: first_observations.html
-    - text: "Basic Workflow"
-      href: basic_workflow.html
-    - text: "Getting Sophisticated"
-      href: getting_sophisticated.html
-    - text: "Your Turn"
-      href: your_turn.html
+    - text: "Background"
+      href: Background.html
+    - text: "Step 1"
+      href: Step_1.html
+    - text: "Step 2"
+      href: Step_2.html
+    - text: "Step 3"
+      href: Step_3.html
+    - text: "Step 4"
+      href: Step_4.html
 output_dir: "."
 output:
   html_document:
     theme: yeti
     highlight: textmate
-#    include:
-#      after_body: _footer.html

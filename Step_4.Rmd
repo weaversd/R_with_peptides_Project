@@ -52,10 +52,10 @@ pep_pI <- function(peptide){
 }
 ```
 
-[A paper from Dr. Kozlowski](https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9) nicely presents a methodology to do this. The general idea is to start at an 'average' pH (lets use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider, which you can make your own decisions on:
+[A paper from Dr. Kozlowski](https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9) nicely presents a methodology to do this. The general idea is to start at an 'average' pH (lets use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider.:
 
 * How far do we move from the previous pH value to the new one?
-* Do we do this an arbitrary number of times (in the paper, Dr. Kozlowski argues that 12 is enough to obtain accurate results)? OR
+* Do we do this an arbitrary number of times? OR
 * Do we do this until the charge is *close* enough to zero?  
 
-An easy answer to the first question is to simply divide the search area in half each time. For example, suppose we try pH 7 and get a negative charge value, we know the pI will be lower than pH 7. So then we divide the pH range 0-7 in half, and try again at 3.5. This time, the charge is positive, so we know that the pH is higher than 3.5, but lower than 7, so we divide this range in half and try again at 5.25. We continue this process either for a certain number of iterations, or until the charge is close enough to zero. Good luck!
+An easy answer to the first question is to simply divide the search area in half each time. For example, suppose we try pH 7 and get a negative charge value. We know the pI will be lower than pH 7, so we divide the pH range 0-7 in half and try again at 3.5. This time, the charge is positive, so we know that the pI is higher than 3.5, but lower than 7. Now we divide this range in half and try again at 5.25. We continue this process either for a certain number of iterations, or until the charge is close enough to zero. Good luck!

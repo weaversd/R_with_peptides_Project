@@ -37,7 +37,10 @@ For this project, you will need to have the package `stringr` installed in your 
 
 
 ## Helpful links
-There are so many resources for R and R studio. Here are a couple of good links if you are stuck or want to learn more:
-[installing R and installing and using packages](https://youtu.be/jWEI-KKrT0Y)
+There are so many resources for R and Rstudio. Here are a couple of good links if you are stuck or want to learn more:  
+
+* [Intro to R and RStudio](http://www.sthda.com/english/wiki/r-basics-quick-and-easy)
+* [installing R and installing and using packages](https://youtu.be/jWEI-KKrT0Y)
+* [r-bloggers](https://www.r-bloggers.com/)
 
 

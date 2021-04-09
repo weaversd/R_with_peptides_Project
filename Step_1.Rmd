@@ -119,4 +119,4 @@ pep_charge(peptide = "DIAK", pH = 3.0)
 ```
 At this lower pH, the charge of the peptide is more than 1.5 and less than 2. Why is this? Both of the basic residues are essentially fully charged at this pH (see the `net_charge` column), but only about 10% and 20% of the Asp and C-term are negatively charged. When these charges are added up, we get a value of +1.7 for the net charge of the peptide.
 
-<font color="purple">Take screenshots of your terminal showing the dataframe and net charge for DIAK at pH 7 and pH 3, and paste this into your assignment. Predict the charge of "DIAK" at pH 12, and feel free to run `pep_charge()` at that pH to check your answer.</font>
+<font color="purple">Take screenshots of your console showing the dataframe and net charge for DIAK at pH 7 and pH 3, and paste this into your assignment. Predict the charge of "DIAK" at pH 12, and feel free to run `pep_charge()` at that pH to check your answer.</font>

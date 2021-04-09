@@ -34,7 +34,8 @@ For this project, you will need to have the package `stringr` installed in your 
 ![*Install a package: Got to 'packages' > 'Install'*](package install.png) 
 
 ![*Install a package: Type 'stringr' into the packages field, and press Install*](stringr install.png) 
-
+## Definitions
+While the goal of this project is to get the student using R without going through an intense training process, it still is helpful to know several key definitions. [Tutorialspoint.com](https://www.tutorialspoint.com/r/index.htm) breaks down R to the basics, and I reccomend you read just a little bit about R here before you start (Not more than 10 or 15 minutes). For the purpose of this project, focus on the tabs called 'Variables', 'Decision Making', 'Loops', and 'Functions'.
 
 ## Helpful links
 There are so many resources for R and Rstudio. Here are a couple of good links if you are stuck or want to learn more:  

@@ -320,8 +320,8 @@ $(document).ready(function () {
 
 
 <div id="step-3a-calculating-the-charge-for-a-list-of-many-peptides" class="section level2">
-<h2>Step 3a: Calculating the Charge for a list of many peptides</h2>
-<p>Using the <code>pep_charge()</code> function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes increadibly time-consuming to do all of these calcualtions one at a time. Luckily, because you have the <code>pep_charge()</code> function in a very versitle coding language, you are able to automate some of these calculations.</p>
+<h2>Step 3a: Calculating the charge for a list of many peptides</h2>
+<p>Using the <code>pep_charge()</code> function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all of these calculations one at a time. Luckily, because you have the <code>pep_charge()</code> function in a very versatile coding language, you are able to automate some of these calculations.</p>
 <div id="exercise-3a" class="section level3">
 <h3>Exercise (3a)</h3>
 <p>Here is a list of 50 peptides that you have identified in your sample after a proteomics experiment:</p>
@@ -329,7 +329,7 @@ $(document).ready(function () {
 <p>And you want to know the charge of all of them at pH 7.</p>
 <p>The code below imports them into R, storing them in a list called <code>peptides</code>. Copy and paste, and then run this in your R terminal.</p>
 <pre class="r"><code>peptides &lt;- list(&quot;HSTIFENLANK&quot;, &quot;HTFMGVVSLGSPSGEVSHPR&quot;, &quot;HTLNQIDEVK&quot;, &quot;IDVHLVPDR&quot;, &quot;IRLENEIQTYR&quot;, &quot;ITQVLHFTK&quot;, &quot;IVSSAMEPDREYHFGQAVR&quot;, &quot;KAEEEHLGILGPQLHADVGDK&quot;, &quot;KCPLPGTAAFK&quot;, &quot;KPVDEYKDCHLAQVPSHTVVAR&quot;, &quot;KPVEEYANCHLAR&quot;, &quot;KQTALVELVK&quot;, &quot;KVPQVSTPTLVEVSR&quot;, &quot;KYLYEIAR&quot;, &quot;LDELRDEGK&quot;, &quot;LKYENEVALR&quot;, &quot;LQHLENELTHDIITK&quot;, &quot;LSINTHPSQKPLSITVR&quot;, &quot;LVHVEEPHTETVR&quot;, &quot;LVNEVTEFAK&quot;, &quot;LVRPEVDVMCTAFHDNEETFLK&quot;, &quot;LVRPEVDVMCTAFHDNEETFLKK&quot;, &quot;LYHSEAFTVNFGDTEEAKK&quot;, &quot;MRPSTDTITVMVENSHGLR&quot;, &quot;NECFLQHKDDNPNLPR&quot;, &quot;PDYSVVLLLR&quot;, &quot;PSLVEQVFLDK&quot;, &quot;PVPGHVTVSICR&quot;, &quot;QEPERNECFLQHK&quot;, &quot;QEPERNECFLQHKDDNPNLPR&quot;, &quot;QHIEAIDVR&quot;, &quot;QNCELFEQLGEYK&quot;, &quot;QSVEADINGLRR&quot;, &quot;QEPERNECFLQHKDDNPNLPR&quot;, &quot;QTALVELVK&quot;, &quot;RHPDYSVVLLLR&quot;, &quot;RPCFSALEVDETYVPK&quot;, &quot;RYLYEIAR&quot;, &quot;SLHTLFGDK&quot;, &quot;SPAFTDLHLR&quot;, &quot;SSNLIILEEHLK&quot;, &quot;TFHADICTLSEK&quot;, &quot;THLAPYSDELR&quot;, &quot;THLPEVFLSK&quot;, &quot;VDLSFSPSQSLPASHAHLR&quot;, &quot;VFDEFKPLVEEPQNLIK&quot;, &quot;VHTECCHGDLLECADDR&quot;, &quot;VHTECCHGDLLECADDRADLAK&quot;, &quot;VLANGHAPYSR&quot;, &quot;VLGYVVEMQPK&quot;, &quot;VPQVSTPTLVEVSR&quot;, &quot;VQFELHYQEVK&quot;)</code></pre>
-<p>You don’t know excatly how to make your function run individually on many different peptides, but luckily you found another script that someone published that does something related. In this case, the function <code>pep_length()</code> calculates the number of amino acids in a sequence. Then, below that, the author has a loop that goes through a list of peptides (just like the one you have!) and calculates and prints the length for each one. Copy and paste the code below, and run it in your terminal.</p>
+<p>You don’t know exactly how to make your function run individually on many different peptides, but luckily you found another published script that does something related. In this case, the function <code>pep_length()</code> calculates the number of amino acids in a sequence. Then, below that, the author has a loop that goes through a list of peptides (just like the one you have!) and calculates and prints the length for each one. Copy and paste the code below to your ‘.R’ file, and run it.</p>
 <pre class="r"><code>#function that returns the number of amino acids in a peptide
 pep_length &lt;- function(peptide) {
   length &lt;- nchar(peptide)
@@ -342,79 +342,29 @@ for (pep in peptides) {
   print(pep)
   print(pep_length(peptide = pep))
 }</code></pre>
-<p>If you ran the peptides list commmand earlier, and the new block of code, you should see an output that printed out each peptide followed by the number of amino acids present. Here are what the first three printouts should look like:</p>
+<p>If you ran the peptides list command earlier and this new block of code, you should see an output that printed out each peptide followed by the number of amino acids it contains Here are what the first three printouts should look like:</p>
 <pre><code>## [1] &quot;HSTIFENLANK&quot;
 ## [1] 11
 ## [1] &quot;HTFMGVVSLGSPSGEVSHPR&quot;
 ## [1] 20
 ## [1] &quot;HTLNQIDEVK&quot;
 ## [1] 10</code></pre>
-<p>Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? Take a screenshot of your modified code, and put it in the assignment.</p>
+<p>Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? <font color="purple">Take a screenshot of your modified code, and put it in the assignment.</font></p>
 <p>Hint 1: The modification should take place within the <code>for</code> loop.<br />
 Hint 2: The modification involves exchanging one function for a different one.<br />
-Hint 3: <code>pep_length()</code> is a function, just like <code>pep_charge()</code>. In this case, both set the argument <code>peptide = pep</code>, but <code>pep_charge()</code> also takes an additional argument.</p>
-<p>If it worked correctly, you might get an output that includes the correct charges, but also includes the dataframe used to calculate the charge for each peptide. That is a lot of information, and not necessary in this case. Go back to your original <code>pep_charge()</code> function from exercise 1. Find the line that prints out the <code>net_charge_df</code> and delete it or comment it out (putting a <code>#</code> symbol in front of a line of code tells the computer to ignore it - this is referred to as ‘commenting out a line’). Re-run that original <code>pep_charge()</code> function to save the change, and then re-run your for loop to print out the values. Is that more managable?</p>
-<pre class="r"><code>#Calculate Charge of a peptide at a specific pH
-pep_charge &lt;- function(peptide, pH = 7) {
-  
-  #convert any lowercase to uppercase
-  peptide &lt;- toupper(peptide)
-  
-  #create charge dataframe. This has a row for each ionizable group (&#39;ion group&#39;),
-  #with its corresponding type of ion (basic or acidic - &#39;ion type&#39;),
-  #and an approximated pKa (&#39;pKa&#39;). These pKa values can be updated for different situations
-  ion_group &lt;- c(&#39;N_term&#39;, &#39;H&#39;, &#39;K&#39;, &#39;R&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;Y&#39;, &#39;C_term&#39;)
-  ion_type &lt;- c(&#39;basic&#39;, &#39;basic&#39;, &#39;basic&#39;, &#39;basic&#39;, &#39;acidic&#39;, &#39;acidic&#39;, &#39;acidic&#39;, &#39;acidic&#39;, &#39;acidic&#39;)
-  #EMBOSS pKas
-  pKa &lt;- c(8.6, 6.5, 10.8, 12.5, 8.5, 3.9, 4.1, 10.1, 3.6)
-  net_charge_df &lt;- data.frame(ion_group, ion_type, pKa)
-  
-  #add a column for counting the number of each potentially charged residue, set at 0 to start
-  net_charge_df$count &lt;- 0
-  #for each residue of interest, count the number of occurances in the peptide
-  for (i in 1:nrow(net_charge_df)) {
-    net_charge_df$count[i] &lt;- str_count(peptide, net_charge_df$ion_group[i])
-  }
-  #set the number of occurences of the n-termini and c-termini to one each
-  net_charge_df$count[net_charge_df$ion_group == &#39;N_term&#39;] &lt;- 1
-  net_charge_df$count[net_charge_df$ion_group == &#39;C_term&#39;] &lt;- 1
-  
-  #create a column that stores the charge of a single instance of each ionizable group at the given pH.
-  #set it to zero to start
-  net_charge_df$single_charge &lt;- 0
-  
-  #check if each ionizable group is acidic or basic.
-  #calculate the charge for a single instance of each group. For the acidic groups, this charge will be negative (lost a proton)
-  #these are calculated by determining the fraction of the group that is protanated vs. not protanated using the supplied pH and pKa values
-  for (i in 1:nrow(net_charge_df)){
-    if (net_charge_df$ion_type[i] == &#39;basic&#39;) {
-      net_charge_df$single_charge[i] &lt;- (10^(net_charge_df$pKa[i] - pH))/((10^(net_charge_df$pKa[i] - pH)) + 1)
-    }
-    if (net_charge_df$ion_type[i] == &#39;acidic&#39;) {
-      net_charge_df$single_charge[i] &lt;- -(10^(pH - net_charge_df$pKa[i]))/((10^(pH - net_charge_df$pKa[i])) + 1)
-    }
-  }
-  
-  #create a new column that is the net charge for each ionizable group (simply the charge of one instance * number of instances)
-  net_charge_df$net_charge &lt;- net_charge_df$count * net_charge_df$single_charge
-  
-  #sum all of the indivdual net charges to produce a total net charge of the peptide.
-  total_net_charge &lt;- sum(net_charge_df$net_charge)
-  
-  #print the dataframe. This can be commented in or out depending on whether this information is wanted
-  #print(net_charge_df)
-
-  #return the net charge value
-  return(total_net_charge)
-}</code></pre>
+Hint 3: <code>pep_length()</code> is a function, just like <code>pep_charge()</code>. In this case, both include <code>peptide = pep</code>, but <code>pep_charge()</code> also takes an additional argument.</p>
+<p>If it worked correctly, you might get an output that includes the correct charges, but also includes the dataframe used to calculate the charge for each peptide. That is a lot of information, and not necessary in this case. Go back to your original <code>pep_charge()</code> function from exercise 1. Find the line that prints out the <code>net_charge_df</code> and delete it or comment it out (putting a <code>#</code> symbol in front of a line of code tells the computer to ignore it - this is referred to as ‘commenting out a line’). Re-run that original <code>pep_charge()</code> function to save the change, and then re-run your ‘for loop’ to print out the values. Is that more manageable?</p>
 </div>
-<div id="exercise-3b" class="section level3">
-<h3>Exercise (3b)</h3>
-<p>Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a ‘matrix’ (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample, and desorbs matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.</p>
+</div>
+<div id="step-3b-predicting-mz-values-for-peptides-in-maldi-experiments" class="section level2">
+<h2>Step 3b: Predicting m/z values for peptides in MALDI experiments</h2>
+<p>Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a ‘matrix’ (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample, and desorbs both matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.</p>
 <div class="figure">
 <img src="MALDI_TOF_EN.png" style="width:50.0%" alt="" />
 <p class="caption"><em>MALDI-TOF Schematic (wikipedia)</em></p>
 </div>
+<div id="exercise-3b" class="section level3">
+<h3>Exercise (3b)</h3>
 <p>You run each of the fractions from exercise 2 on a MALDI-TOF instrument, and obtain mass spectra, which show signal at specific m/z values. You want to calculate the expected m/z values for each of your peptides to see if they are present. Luckily, you find 2 more helpful published R functions. The first takes a peptide, and returns the mass of the peptide in Daltons. The second takes a mass and a charge value and returns a m/z. Copy and paste both of these functions into R and run them.</p>
 <pre class="r"><code>#calculate peptide mass
 #create_dictionary. Each one letter code corresponds to a mass value. Must be run before the function
@@ -459,7 +409,7 @@ m_over_z &lt;- function(peptide, pH = 7) {
   mass_charge_ratio &lt;- peptide_mass / peptide_charge
   return(mass_charge_ratio)
 }</code></pre>
-<p>Lets try it on one of our favorite peptides, DIAK. You should run this on your own terminal as well.</p>
+<p>Lets try it on one of our favorite peptides, DIAK. You should run this in your own console as well.</p>
 <pre class="r"><code>m_over_z(&quot;DIAK&quot;, pH = 7)</code></pre>
 <pre><code>## [1] -18971.03</code></pre>
 <p>Hmmm that output seems very high (and negative). What could be wrong? Lets try calculating charge and mass separately.</p>
@@ -473,7 +423,7 @@ m_over_z &lt;- function(peptide, pH = 7) {
 <li>The charge will always be +1</li>
 <li>The mass will be the mass of the peptide <em>plust the mass of a proton</em> which is approximately 1.008 Da.</li>
 </ul>
-<p>Take a screenshot of your modified <code>m_over_z()</code> function and paste it in your assignment. What are the expected MALDI m/z values for each peptide from Exercise 2?</p>
+<p><font color="purple">Take a screenshot of your modified <code>m_over_z()</code> function and paste it in your assignment. What are the expected MALDI m/z values for each peptide from Exercise 2?</font></p>
 </div>
 </div>
 

@@ -1,6 +1,6 @@
 ---
 title: "Peptide Calcualtions with R"
-author:  "[Simon Weaver](https://weaversd.github.io/), Bio-analytical Chemistry PhD student at the University of Notre Dame"
+author:  "By [Simon Weaver](https://weaversd.github.io/), Bio-analytical Chemistry PhD student at the University of Notre Dame"
 output:
   html_document
 ---

@@ -4,7 +4,7 @@ output:
   html_document
 ---
 
-## Step 4: Further applications - Peptide summary function, pH vs charge plot, Isoelectric point calculator
+## Further applications - Peptide summary function, pH vs charge plot, Isoelectric point calculator
 For steps 1-3, hopefully most students were able to follow along and complete the objectives. The point of this project is to show that even without an extensive knowledge of coding, it is possible to take published scripts and functions and use them for your own data, even making simple modifications. Step 4 involves writing your own code from scratch, which I acknowledge takes more experience and more extensive background knowledge with a programming language. However, there are many excellent free resources online for diving into this sort of challenge. The best way to start out coding from scratch is to identify a question and work at it until a solution presents itself. In this section I will present several 'questions' that relate to the problems discussed in steps 1-3. There are many ways to successfully complete these challenges, but I will possible post solutions for each one here on git-hub. They are roughly in order of difficulty from easiest to hardest.
 
 ### Exercise (4a)

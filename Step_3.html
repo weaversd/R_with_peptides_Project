@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -258,6 +261,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -265,6 +331,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -322,8 +398,9 @@ $(document).ready(function () {
 <div id="step-3a-calculating-the-charge-for-a-list-of-many-peptides" class="section level2">
 <h2>Step 3a: Calculating the charge for a list of many peptides</h2>
 <p>Using the <code>pep_charge()</code> function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all of these calculations one at a time. Luckily, because you have the <code>pep_charge()</code> function in a very versatile coding language, you are able to automate some of these calculations.</p>
-<div id="exercise-3a" class="section level3">
-<h3>Exercise (3a)</h3>
+</div>
+<div id="exercise-3a" class="section level2">
+<h2>Exercise (3a)</h2>
 <p>Here is a list of 50 peptides that you have identified in your sample after a proteomics experiment:</p>
 <p><font size="1" color="blue">HSTIFENLANK, HTFMGVVSLGSPSGEVSHPR, HTLNQIDEVK, IDVHLVPDR, IRLENEIQTYR, ITQVLHFTK, IVSSAMEPDREYHFGQAVR, KAEEEHLGILGPQLHADVGDK, KCPLPGTAAFK, KPVDEYKDCHLAQVPSHTVVAR, KPVEEYANCHLAR, KQTALVELVK, KVPQVSTPTLVEVSR, KYLYEIAR, LDELRDEGK, LKYENEVALR, LQHLENELTHDIITK, LSINTHPSQKPLSITVR, LVHVEEPHTETVR, LVNEVTEFAK, LVRPEVDVMCTAFHDNEETFLK, LVRPEVDVMCTAFHDNEETFLKK, LYHSEAFTVNFGDTEEAKK, MRPSTDTITVMVENSHGLR, NECFLQHKDDNPNLPR, PDYSVVLLLR, PSLVEQVFLDK, PVPGHVTVSICR, QEPERNECFLQHK, QEPERNECFLQHKDDNPNLPR, QHIEAIDVR, QNCELFEQLGEYK, QSVEADINGLRR, QEPERNECFLQHKDDNPNLPR, QTALVELVK, RHPDYSVVLLLR, RPCFSALEVDETYVPK, RYLYEIAR, SLHTLFGDK, SPAFTDLHLR, SSNLIILEEHLK, TFHADICTLSEK, THLAPYSDELR, THLPEVFLSK, VDLSFSPSQSLPASHAHLR, VFDEFKPLVEEPQNLIK, VHTECCHGDLLECADDR, VHTECCHGDLLECADDRADLAK, VLANGHAPYSR, VLGYVVEMQPK, VPQVSTPTLVEVSR, VQFELHYQEVK</font></p>
 <p>And you want to know the charge of all of them at pH 7.</p>
@@ -355,7 +432,6 @@ Hint 2: The modification involves exchanging one function for a different one.<b
 Hint 3: <code>pep_length()</code> is a function, just like <code>pep_charge()</code>. In this case, both include <code>peptide = pep</code>, but <code>pep_charge()</code> also takes an additional argument.</p>
 <p>If it worked correctly, you might get an output that includes the correct charges, but also includes the dataframe used to calculate the charge for each peptide. That is a lot of information, and not necessary in this case. Go back to your original <code>pep_charge()</code> function from exercise 1. Find the line that prints out the <code>net_charge_df</code> and delete it or comment it out (putting a <code>#</code> symbol in front of a line of code tells the computer to ignore it - this is referred to as ‘commenting out a line’). Re-run that original <code>pep_charge()</code> function to save the change, and then re-run your ‘for loop’ to print out the values. Is that more manageable?</p>
 </div>
-</div>
 <div id="step-3b-predicting-mz-values-for-peptides-in-maldi-experiments" class="section level2">
 <h2>Step 3b: Predicting m/z values for peptides in MALDI experiments</h2>
 <p>Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a ‘matrix’ (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample, and desorbs both matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.</p>
@@ -363,8 +439,9 @@ Hint 3: <code>pep_length()</code> is a function, just like <code>pep_charge()</c
 <img src="MALDI_TOF_EN.png" style="width:50.0%" alt="" />
 <p class="caption"><em>MALDI-TOF Schematic (wikipedia)</em></p>
 </div>
-<div id="exercise-3b" class="section level3">
-<h3>Exercise (3b)</h3>
+</div>
+<div id="exercise-3b" class="section level2">
+<h2>Exercise (3b)</h2>
 <p>You run each of the fractions from exercise 2 on a MALDI-TOF instrument, and obtain mass spectra, which show signal at specific m/z values. You want to calculate the expected m/z values for each of your peptides to see if they are present. Luckily, you find 2 more helpful published R functions. The first takes a peptide, and returns the mass of the peptide in Daltons. The second takes a mass and a charge value and returns a m/z. Copy and paste both of these functions into R and run them.</p>
 <pre class="r"><code>#calculate peptide mass
 #create_dictionary. Each one letter code corresponds to a mass value. Must be run before the function
@@ -425,10 +502,11 @@ m_over_z &lt;- function(peptide, pH = 7) {
 </ul>
 <p><font color="purple">Take a screenshot of your modified <code>m_over_z()</code> function and paste it in your assignment. What are the expected MALDI m/z values for each peptide from Exercise 2?</font></p>
 </div>
+
+
+
 </div>
-
-
-
+</div>
 
 </div>
 
@@ -461,6 +539,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

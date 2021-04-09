@@ -1,5 +1,9 @@
 ---
 title: "Step 1"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ## Calculating the charge of a peptide
@@ -31,7 +35,7 @@ z_{acidic}=-(\frac{10^{(pH-pK_a)}}{10^{(pH-pK_a)} + 1})
 \end{equation}
 From these equations, we can calculate the charge on any one residue (or terminus) if we know its pKa, whether it is acidic or basic, and the pH. Then by counting the number of each ionizable group in a peptide, we can add up their respective charges to arrive at a net charge for the peptide at any given pH.  
 
-### Code
+## Code
 The function below: `pep_charge()`, takes two arguments: `peptide` which is a variable that corresponds to a peptide written out in one letter code, and `pH` which is a number between 0 and 14 designating the pH of interest. You can copy and paste this entire block of code into the '.R' file in your code editor, highlight it, and click run to have the function available to you. (You will need to add the `stringr` package if you don't already have it installed. See the step by step instructions in the 'Resources' tab or [this link](http://derekogle.com/IFAR/supplements/installations/InstallPackagesRStudio.html) for installing R packages.)
 
 ```{r, warning=FALSE}
@@ -101,7 +105,7 @@ pep_charge <- function(peptide, pH = 7) {
 
 It is important to note that there are multiple options for the set of pKa values. The ones in the code above come from the [EMBOSS](https://www.ebi.ac.uk/Tools/emboss/) tools, but you could easily replace these with several other sets. One activity could be updating these pKa values with those from another source, and seeing how much the final peptide charge changes. It is also important that we know that local environment can influence the pKa of any ionizable group.
 
-### Exercise (1)
+## Exercise (1)
 The exercise for step one is simple. Simply run the function with an example peptide: <font color="blue">DIAK</font>. 
 ![*DIAK Structure*](DIAK.png){width=40%}   
 

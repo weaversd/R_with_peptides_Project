@@ -1,14 +1,16 @@
 ---
 title: "Step 2"
 output:
-  html_document
+  html_document:
+    toc: true
+    toc_float: true
 ---
 ## Applying the charge calculation to Anion Excahnge Chromatography (AEX)
 For step 2, we will apply this peptide charge function to new data in order to predict the elution of a mixture of peptides from a anion exchange column. In AEX, the stationary phase of the column is positively charged, which retains negatively charged species. By changing the pH of the mobile phase, analytes can be eluted off the column depending on their charge at the different pH values.  
 
 ![*Ion Exchange Chromatography Stationary Phases (waters.com)*](primer_T_Ion_Exchange_CHromatography.jpg){width=50%}  
 
-### Exercise (2)
+## Exercise (2)
 Assume you have a mixture of these 5 peptides:  
 
 <font color="blue" size=2>DIAK  

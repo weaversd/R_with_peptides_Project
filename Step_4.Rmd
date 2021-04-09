@@ -1,13 +1,15 @@
 ---
 title: "Step 4"
 output:
-  html_document
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ## Further applications - Peptide summary function, pH vs charge plot, Isoelectric point calculator
 For steps 1-3, hopefully most students were able to follow along and complete the objectives. The point of this project is to show that even without an extensive knowledge of coding, it is possible to take published scripts and functions and use them for your own data, even making simple modifications. Step 4 involves writing your own code from scratch, which I acknowledge takes more experience and more extensive background knowledge with a programming language. However, there are many excellent free resources online for diving into this sort of challenge. The best way to start out coding from scratch is to identify a question and work at it until a solution presents itself. In this section I will present several 'questions' that relate to the problems discussed in steps 1-3. There are many ways to successfully complete these challenges, but I will post possible solutions for each one [here](https://github.com/weaversd/R_with_peptides_Project/tree/gh-pages/R_scripts) on git-hub. They are roughly in order of difficulty from easiest to hardest.
 
-### Exercise (4a)
+## Exercise (4a)
 We now have functions that calculate the charge of a peptide, the mass of a peptide, the m/z at a given pH of a peptide, and the expected m/z of a peptide in a MALDI spectrum. It would be helpful if we had a function that could summarize all of them. The goal for this function is to take a peptide and a pH, and print out all of the attributes we can calculate. Here is a framework with which to write your function.
 ```{r}
 peptide_summary <- function(peptide, pH){
@@ -17,7 +19,7 @@ peptide_summary <- function(peptide, pH){
 }
 ```
 
-### Exercise (4b)
+## Exercise (4b)
 We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isolectric point of a peptide, or prediciting its behaivior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK:
 ![*DIAK charge vs pH plot*](DIAK ph charge plot.png)
 This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function `plot()` like this `plot(pH_list, charge_list)`. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.
@@ -42,7 +44,7 @@ rep(a, b) creates a vector of length b, and each value is a
 length(x) returns the length of a vector or list x
 ```
 
-### Exercise (4c)
+## Exercise (4c)
 Isoelectric point is the point that a protein or peptide has a net charge of 0. We can estimate this based on the graph we created in Exercise 4b (for DIAK it is approximately 6.3) but it would be helpful if we were able to create a function that calculated this for us. Here is a framework for the function:
 ```{r}
 pep_pI <- function(peptide){

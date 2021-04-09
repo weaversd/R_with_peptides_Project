@@ -1,13 +1,15 @@
 ---
 title: "Step 3"
 output:
-  html_document
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ## Step 3a: Calculating the charge for a list of many peptides
 Using the `pep_charge()` function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all of these calculations one at a time. Luckily, because you have the `pep_charge()` function in a very versatile coding language, you are able to automate some of these calculations.  
 
-### Exercise (3a)
+## Exercise (3a)
 Here is a list of 50 peptides that you have identified in your sample after a proteomics experiment:  
 
 <font size="1" color="blue">HSTIFENLANK, HTFMGVVSLGSPSGEVSHPR, HTLNQIDEVK, IDVHLVPDR, IRLENEIQTYR, ITQVLHFTK, IVSSAMEPDREYHFGQAVR, KAEEEHLGILGPQLHADVGDK, KCPLPGTAAFK, KPVDEYKDCHLAQVPSHTVVAR, KPVEEYANCHLAR, KQTALVELVK, KVPQVSTPTLVEVSR, KYLYEIAR, LDELRDEGK, LKYENEVALR, LQHLENELTHDIITK, LSINTHPSQKPLSITVR, LVHVEEPHTETVR, LVNEVTEFAK, LVRPEVDVMCTAFHDNEETFLK, LVRPEVDVMCTAFHDNEETFLKK, LYHSEAFTVNFGDTEEAKK, MRPSTDTITVMVENSHGLR, NECFLQHKDDNPNLPR, PDYSVVLLLR, PSLVEQVFLDK, PVPGHVTVSICR, QEPERNECFLQHK, QEPERNECFLQHKDDNPNLPR, QHIEAIDVR, QNCELFEQLGEYK, QSVEADINGLRR, QEPERNECFLQHKDDNPNLPR, QTALVELVK, RHPDYSVVLLLR, RPCFSALEVDETYVPK, RYLYEIAR, SLHTLFGDK, SPAFTDLHLR, SSNLIILEEHLK, TFHADICTLSEK, THLAPYSDELR, THLPEVFLSK, VDLSFSPSQSLPASHAHLR, VFDEFKPLVEEPQNLIK, VHTECCHGDLLECADDR, VHTECCHGDLLECADDRADLAK, VLANGHAPYSR, VLGYVVEMQPK, VPQVSTPTLVEVSR, VQFELHYQEVK</font>  
@@ -110,7 +112,7 @@ Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spec
 
 ![*MALDI-TOF Schematic (wikipedia)*](MALDI_TOF_EN.png){width=50%}  
 
-### Exercise (3b)
+## Exercise (3b)
 You run each of the fractions from exercise 2 on a MALDI-TOF instrument, and obtain mass spectra, which show signal at specific m/z values. You want to calculate the expected m/z values for each of your peptides to see if they are present. Luckily, you find 2 more helpful published R functions. The first takes a peptide, and returns the mass of the peptide in Daltons. The second takes a mass and a charge value and returns a m/z. Copy and paste both of these functions into R and run them.
 ```{r}
 #calculate peptide mass

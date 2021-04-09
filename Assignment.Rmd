@@ -2,4 +2,5 @@
 title: "Assignment"
 ---
 
-## Word document of assignment
+[Word Document](Peptides_in_R_assignment.docx)  
+[PDF](Peptides_in_R_assignment.pdf)

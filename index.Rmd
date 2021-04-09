@@ -19,3 +19,6 @@ As described in the background section, the scientific question at hand is to ca
 
 ----
 Note that the code in this project has been written to be easy to read, not necessarily efficient. However, for the calculations done in these exercises, nothing should take longer than ~1 second on an average computer.
+
+----
+This website is based on a template from [jules32](https://github.com/jules32)

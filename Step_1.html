@@ -397,13 +397,13 @@ div.tocify {
 
 <div id="calculating-the-charge-of-a-peptide" class="section level2">
 <h2>Calculating the charge of a peptide</h2>
-<p>Net eptide charge can be represented as the sum of the charge on each individual amino acid in the peptide sequence. Of the 20 common amino acids, seven can be ionized under normal conditions to produce charged species. Three of these seven (Lysine, Arginine, histidine) are considered basic. They gain a proton to become positively charged when the pH is below their pKa. Four are considered acidic (Cysteine, Tyrosine, Glutamic acid, Aspartic Acid), and these lose a proton to become negatively charged when the pH is above their pKa. In addition to the residues themselves, the N-terminus of the peptide is basic, and can become positively charged, and the C-terminus is acidic, and can become negatively charged. All together, that is 9 ionizable groups that must be considered when calculating the net charge of the peptide. (Other groups can be ionized and contribute to the charge, but they are outside the scope of this project.)</p>
+<p>Net eptide charge can be represented as the sum of the charge on each individual amino acid in the peptide sequence. Of the 20 common amino acids, seven can be ionized under normal conditions to produce charged species. Three of these seven (lysine, arginine, histidine) are considered basic. They gain a proton to become positively charged when the pH is below their pKa. Four are considered acidic cCysteine, tyrosine, glutamic acid, aspartic Acid), and these lose a proton to become negatively charged when the pH is above their pKa. In addition to the residues themselves, the N-terminus of the peptide is basic, and can become positively charged, and the C-terminus is acidic, and can become negatively charged. All together, that is 9 ionizable groups that must be considered when calculating the net charge of the peptide. (Other groups can occasionally be ionized and contribute to the charge, but they are outside the scope of this project.)</p>
 <p>However, just because the pH is above or below an ionizable group’s pKa doesn’t mean that all of the residues will be protanated/unprotanated. The fraction of a species that is protanated is a term in the Henderson-Hasselbalch equation (<span class="math inline">\(pH = pK_a + log_{10}(\frac{[base]}{[acid]})\)</span>), which can be rearranged to show the ratio of [base]/[acid] or [acid]/[base] as a function of pKa and pH. <span class="math display">\[\begin{equation}
 \tag{1}
 \frac{[base]}{[acid]} = 10^{(pH-pK_a)}
 \end{equation}\]</span> <span class="math display">\[\begin{equation}
 \tag{2}
-\frac{[acid]}{[base]} = 10^{(pK_z-pH)}
+\frac{[acid]}{[base]} = 10^{(pK_a-pH)}
 \end{equation}\]</span> For ‘basic’ residues (and the N-terminus), the charged (+) state is when they are protanated, or in their ‘acid’ form. For this, the fraction that are protanated can be given by: <span class="math display">\[\begin{equation}
 \tag{3}
 f=\frac{[acid]}{[acid] + [base]}
@@ -413,7 +413,13 @@ z_{basic}=\frac{10^{(pK_a-pH)}}{10^{(pK_a-pH)} + 1}
 \end{equation}\]</span> For acidic residues (and the C-terminus), the same derivation can be performed using equation 1 to obtain the charge (z) as a function of pH and pKa. (Note that it is (-) because the charged state is the lack of a proton, and therefore a negative charge) <span class="math display">\[\begin{equation}
 \tag{5}
 z_{acidic}=-(\frac{10^{(pH-pK_a)}}{10^{(pH-pK_a)} + 1})
-\end{equation}\]</span> From these equations, we can calculate the charge on any one residue (or terminus) if we know its pKa, whether it is acidic or basic, and the pH. Then by counting the number of each ionizable group in a peptide, we can add up their respective charges to arrive at a net charge for the peptide at any given pH.</p>
+\end{equation}\]</span> From these equations, we can calculate the charge on any one residue (or terminus) if we know three things:</p>
+<ul>
+<li>The species’ pKa</li>
+<li>Whether it is acidic or basic</li>
+<li>The pH.</li>
+</ul>
+<p>Then by counting the number of each ionizable group in a peptide, we can add up their respective charges to arrive at a net charge for the peptide at any given pH.</p>
 </div>
 <div id="code" class="section level2">
 <h2>Code</h2>
@@ -477,7 +483,7 @@ pep_charge &lt;- function(peptide, pH = 7) {
 }</code></pre>
 <p><em>Quick Description of the code:</em></p>
 <p><em>First we convert the peptide variable to all uppercase letters. Then we create a dataframe (type of table or matrix with columns and rows) that contains all the ionizable groups in one column, their corresponding basic or acidic designation in the next, and their pKa value in the third column. We add a column that counts the number of instances of each group in the pepdide, and assign that value to the count column. Next we make a column that keeps track of the charge for one instance of each group. The ‘if’ statements nested within the ‘for loop’ do the hard work of actually calculating the charge for each residue. They check whether the group is basic or acidic, and then apply the correct equation. From there, we just multiply the charge by the number of instances of that group, and then add up all the charges. We can print the dataframe to see exactly how we got to the final number, and we return the total net charge</em></p>
-<p>It is important to note that there are multiple options for the set of pKa values. The ones in the code above come from the <a href="https://www.ebi.ac.uk/Tools/emboss/">EMBOSS</a> tools, but you could easily replace these with several other sets. One activity could be updating these pKa values with those from another source, and seeing how much the final peptide charge changes. It is also important that we know that local environment can influence the pKa of any ionizable group.</p>
+<p>It is important to note that there are multiple options for the set of pKa values. The ones in the code above come from the <a href="https://www.ebi.ac.uk/Tools/emboss/">EMBOSS</a> tools, but you could easily replace these with several other sets. One activity could be updating these pKa values with those from another source, and seeing how much the final peptide charge changes. It is also important to acknowledge that local environment can influence the pKa of any ionizable group.</p>
 </div>
 <div id="exercise-1" class="section level2">
 <h2>Exercise (1)</h2>
@@ -496,7 +502,7 @@ pep_charge &lt;- function(peptide, pH = 7) {
 ## 8         Y   acidic 10.1     0 -0.0007936978  0.0000000
 ## 9    C_term   acidic  3.6     1 -0.9996020513 -0.9996021</code></pre>
 <pre><code>## [1] -0.02347019</code></pre>
-<p>The first printout is the dataframe that we used to create each charge. Can you tell what each column is for?</p>
+<p>The first printout is the dataframe that we used to create each charge. Can you tell what each column is for? Read through the <code>pep_charge()</code> code above, and compare it to this dataframe to determine how each value is calculated.</p>
 <p>The second printout is the net charge that we calculated. It is negative, but very close to 0, indicating that this peptide is close to neutral at pH 7.0 even though there are 4 charged groups. This is because the positive charges of the N-terminus and the Lysine cancel out the negative charges of the Aspartate and the C-terminus. Lets try the same thing at pH 3.0.</p>
 <pre class="r"><code>pep_charge(peptide = &quot;DIAK&quot;, pH = 3.0)</code></pre>
 <pre><code>##   ion_group ion_type  pKa count single_charge net_charge

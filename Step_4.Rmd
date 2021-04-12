@@ -40,7 +40,7 @@ plot pH and charge
 ```
 Helpful functions:
 seq(x, y, z) creates a vector of numbers that goes from x to y, incrementing by z
-rep(a, b) creates a vector of length b, and each value is a
+rep(x, y) creates a vector of length y, and each value is x
 length(x) returns the length of a vector or list x
 ```
 
@@ -60,4 +60,12 @@ pep_pI <- function(peptide){
 * Do we do this an arbitrary number of times? OR
 * Do we do this until the charge is *close* enough to zero?  
 
-An easy answer to the first question is to simply divide the search area in half each time. For example, suppose we try pH 7 and get a negative charge value. We know the pI will be lower than pH 7, so we divide the pH range 0-7 in half and try again at 3.5. This time, the charge is positive, so we know that the pI is higher than 3.5, but lower than 7. Now we divide this range in half and try again at 5.25. We continue this process either for a certain number of iterations, or until the charge is close enough to zero. Good luck!
+An easy answer to the first question is to simply divide the search area in half each time. For example, suppose we try pH 7 and get a negative charge value. We know the pI will be lower than pH 7, so we divide the pH range 0-7 in half and try again at 3.5. This time, the charge is positive, so we know that the pI is higher than 3.5, but lower than 7. Now we divide this range in half and try again at 5.25. We continue this process either for a certain number of iterations, or until the charge is close enough to zero. 
+
+## Additional Exercises
+Some additional questions and exercises are listed below. Feel free to get creative and answer your own questions!  
+
+* How would we deal with peptides that are modified? For example: <font color="blue>DALC:mK</font>, where the C:m is a modified cysteine residue.
+* Run a comparison study between three different sets of pKa values.
+* create a peptide mass function that uses average mass instead of mono-isotopic mass.
+

@@ -39,7 +39,7 @@ From these equations, we can calculate the charge on any one residue (or terminu
 * Whether it is acidic or basic
 * The pH.  
 
-Then by counting the number of each ionizable group in a peptide, we can add up their respective charges to arrive at a net charge for the peptide at any given pH.  
+Then by counting the number of each ionizable group in a peptide, we can add up their respective charges to arrive at a net charge for the peptide at any given pH. (For a more complete derivation of these equations, see [this](https://pubs.acs.org/doi/abs/10.1021/ed100232j) article)  
 
 ## Code
 The function below: `pep_charge()`, takes two arguments: `peptide` which is a variable that corresponds to a peptide written out in one letter code, and `pH` which is a number between 0 and 14 designating the pH of interest. You can copy and paste this entire block of code into the '.R' file in your code editor, highlight it, and click run to have the function available to you. (You will need to add the `stringr` package if you don't already have it installed. See the step by step instructions in the 'Resources' tab or [this link](http://derekogle.com/IFAR/supplements/installations/InstallPackagesRStudio.html) for installing R packages.)

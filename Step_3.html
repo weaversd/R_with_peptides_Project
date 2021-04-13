@@ -397,7 +397,7 @@ div.tocify {
 
 <div id="step-3a-calculating-the-charge-for-a-list-of-many-peptides" class="section level2">
 <h2>Step 3a: Calculating the charge for a list of many peptides</h2>
-<p>Using the <code>pep_charge()</code> function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all of these calculations one at a time. Luckily, because you have the <code>pep_charge()</code> function available in a versatile coding language, you are able to automate some of these calculations.</p>
+<p>Using the <code>pep_charge()</code> function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all these calculations one at a time. Luckily, because you have the <code>pep_charge()</code> function available in a versatile coding language, you are able to automate some of these calculations.</p>
 </div>
 <div id="exercise-3a" class="section level2">
 <h2>Exercise (3a)</h2>
@@ -432,7 +432,7 @@ for (pep in peptides) {
 ## [1] 20
 ## [1] &quot;HTLNQIDEVK&quot;
 ## [1] 10</code></pre>
-<p>Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? (Some hints are given below in white font… highligth the blank space below to read them.) <font color="purple">Take a screenshot of your modified code, and put it in the assignment.</font></p>
+<p>Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? (Some hints are given below in white font… highlight the blank space below to read them.) <font color="purple">Take a screenshot of your modified code, and put it in the assignment.</font></p>
 <p><font color="white">Hint 1: The modification should take place within the <code>for</code> loop.<br />
 Hint 2: The modification involves exchanging one function for a different one.<br />
 Hint 3: <code>pep_length()</code> is a function, just like <code>pep_charge()</code>. In this case, both include <code>peptide = pep</code>, but <code>pep_charge()</code> also takes an additional argument.</font></p>
@@ -440,10 +440,10 @@ Hint 3: <code>pep_length()</code> is a function, just like <code>pep_charge()</c
 </div>
 <div id="step-3b-predicting-mz-values-for-peptides-in-maldi-experiments" class="section level2">
 <h2>Step 3b: Predicting m/z values for peptides in MALDI experiments</h2>
-<p>Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a ‘matrix’ (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample, and desorbs both matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.</p>
+<p>Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a ‘matrix’ (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample and desorbs both matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.</p>
 <div class="figure">
 <img src="MALDI_TOF_EN.png" style="width:50.0%" alt="" />
-<p class="caption"><em>MALDI-TOF Schematic (wikipedia)</em></p>
+<p class="caption"><em>MALDI-TOF Schematic (Wikipedia)</em></p>
 </div>
 </div>
 <div id="exercise-3b" class="section level2">
@@ -500,7 +500,7 @@ m_over_z &lt;- function(peptide, pH = 7) {
 <pre><code>## [1] -0.02347019</code></pre>
 <pre class="r"><code>pep_mass(&quot;DIAK&quot;)</code></pre>
 <pre><code>## [1] 445.2536</code></pre>
-<p>The mass looks reasonable, but the charge is very close to zero (we actually knew this already from exercise 1). It turns out, when we are dividing mass / charge, we are dividing by a number that is essentially zero, causing the m/z value to balloon to skyrocket.</p>
+<p>The mass looks reasonable, but the charge is very close to zero (we actually knew this already from exercise 1). It turns out, when we are dividing mass / charge, we are dividing by a number that is essentially zero, causing the m/z value to skyrocket.</p>
 <p>If you think about MALDI however, we don’t actually know what the pH is, and so assuming it to be 7 is probably not accurate. In addition, based on your extensive knowledge of MALDI with peptides, you remember that almost all peptides end up with a +1 charge (due to one proton) when they are ionized with this technique. How could you modify the <code>m_over_z()</code> function to make it applicable to MALDI? The important aspects are:</p>
 <ul>
 <li>The charge will always be +1</li>

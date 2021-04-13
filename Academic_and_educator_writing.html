@@ -11,7 +11,7 @@
 
 
 
-<title>Step 2</title>
+<title>Academica and Educator focussed writing</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -261,69 +258,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -331,16 +265,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -390,36 +314,27 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Step 2</h1>
+<h1 class="title toc-ignore">Academica and Educator focussed writing</h1>
 
 </div>
 
 
-<div id="applying-the-charge-calculation-to-anion-exchange-chromatography-aex" class="section level2">
-<h2>Applying the charge calculation to Anion Exchange Chromatography (AEX)</h2>
-<p>For step 2, we will apply this peptide charge function (<code>pep_charge()</code>) to new data in order to predict the elution of a mixture of peptides from a anion exchange column. In AEX, the stationary phase of the column is positively charged, which retains negatively charged species. By changing the pH of the mobile phase, analytes can be eluted off the column depending on their charge at the different pH values.</p>
-<div class="figure">
-<img src="primer_T_Ion_Exchange_CHromatography.jpg" style="width:50.0%" alt="" />
-<p class="caption"><em>Ion Exchange Chromatography Stationary Phases (waters.com)</em></p>
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>Peptides are an important analyte for proteomics, and calculating their mass, charge, and mass/charge ratio is crucial for experimental design and data interpretation. While there are multiple online tools for calculating these attributes for a given peptide, they are generally ‘black boxes’ and require no understanding of the acid/base chemistry or the chemical structure of the peptide. They also are not generally customizable, and are not made for automated analysis or handling many individual peptides at once. By using R, we will write functions from scratch to do these calculations on peptides, and connect the dots from chemistry, to math, to code, to scientific conclusion. As coding becomes more integrated into every type of scientific laboratory, it is essential to include in curriculum examples of the powerful ways that programming can be applied to basic chemistry principles to streamline data analysis.</p>
 </div>
+<div id="project-overview" class="section level1">
+<h1>Project Overview</h1>
+<p>There are four distinct levels of comfort that one can have with applying code to data. The lowest level is simply to take a script or function that is designed to perform some action (plotting a graph, calculating a pH, etc) and use it to perform that action on an example dataset while following step by step instructions. The second level is to take a script or function and use it on your own original data that hasn’t been analyzed before. The next level would be to take the script or function, and make modifications that tweak what the purpose of the code is. This could be a minor tweak or a major tweak; for example, changing the output of the data from a table to a plot, or taking a pattern matching algorithm designed for DNA sequences and making it work with protein sequences as well. The final level is to write your own code from scratch. The project outlined here will go through all four of these levels, and depending on the experience level of the audience, these different steps can be combined in any number of ways. No matter what level the students are working with, the exposure to programming, and the application of code to scientific questions is a necessary experience to have.</p>
+<p>As described in the background section, the scientific question at hand is to calculate charge, mass, and mass/charge ratio for peptides. We will focus on calculating charge for the first several steps, and then move on to mass and mass/charge for more challenging assignments. The first step, (simply implementing code while following instructions) deals with calculating the charge on a peptide. <a href="https://pubs.acs.org/doi/abs/10.1021/ed100232j">An excellent article by Dr. Paul A. Sims</a> outlines the theory behind this calculation, and the equations that are needed. The second step involves applying this charge calculation to a real world example, Ion Exchange Chromatography, and has the students predict the order that peptides will elute from a column. The third step is divided into two parts, a and b. In ‘a’, students will modify a <code>for</code> loop to obtain charge values for a long list of peptides. In part ‘b’, a function to calculate mass and mass/charge ratio is given, and students must edit these to create a function that predicts m/z for a peptide in MALDI. Finally, the forth step sets forward several questions related to peptide charge and mass for the student to answer using their own ideas and original code.</p>
 </div>
-<div id="exercise-2" class="section level2">
-<h2>Exercise (2)</h2>
-<p>Assume you have a mixture of these 5 peptides:</p>
-<p><font color="blue" size=2>DIAK<br />
-RAAVSK<br />
-EGNTQR<br />
-EPLSHR<br />
-ASCHK</font></p>
-<p>And that that they are in a buffer at pH 10. You add them to an anion exchange column in the pH 10 buffer. You collect the flow through (eluate) from the pH 10 buffer and label it ‘Fraction 1’. Next, you change the mobile phase to a buffer at pH 7, and rinse the column several times with this buffer. You collect this eluate, and label it ‘Fraction 2’. Finally, you repeat the process with a buffer at pH 3. The eluate at pH 3 is labelled ‘Fraction 3’.</p>
-<p><font color="purple">Based on the charges of each peptide at each pH, which peptides eluted in which fraction? </font> (For the purpose of this exercise, assume that if a peptide is (+) charged it elutes, and if it is (-) charged it retains, no matter how close to neutral it is.)</p>
-<p><font color="purple">Did any peptides retain on the column at pH 3? Why or why not?</font></p>
+<div id="paragraph-from-the-background-section" class="section level1">
+<h1>Paragraph from the background section</h1>
+<p>Learning how to use code as a tool for scientific research often seems like a daunting task. There are many publications that include a phrase along the lines of, “The fasta files were digested <em>in silico</em> and probability scores were assigned using an in-house python script”. For many students, and even more experienced scientists, this ‘in-house’ script is a mystery that is conceptually out of reach. However, I believe that there is a false dichotomy of ‘knowing programming’ or ‘not knowing programming’ that is prevalent in chemistry, and wet-lab science in general. While understanding very basic coding principles like variables, loops, and functions may be prerequisite information, well-written code can be implemented by almost anyone who is familiar with the underlying scientific principles. In all peer-reviewed journals, these ‘in-house’ scripts should be published as supporting information, or available on a platform like git-hub. With only a small amount of experience with code and a good search engine, any researcher should be able to take these available resources and apply them to their own questions and data. The goal of this tutorial is to show students that they can take code and use it to answer questions that have real scientific applications, which is an invaluable skill in a research career.</p>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -452,32 +367,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

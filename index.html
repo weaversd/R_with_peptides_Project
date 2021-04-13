@@ -325,17 +325,48 @@ $(document).ready(function () {
 <h1>Site Navigation</h1>
 <p>This project is broken down into several sections, which can be accessed by clicking on tabs in the top navigation bar.</p>
 </div>
-<div id="abstract" class="section level1">
-<h1>Abstract</h1>
-<p>Peptides are an important analyte for proteomics, and calculating their mass, charge, and mass/charge ratio is crucial for experimental design and data interpretation. While there are multiple online tools for calculating these attributes for a given peptide, they are generally ‘black boxes’ and require no understanding of the acid/base chemistry or the chemical structure of the peptide. They also are not generally customizable, and are not made for automated analysis or handling many individual peptides at once. By using R, we will write functions from scratch to do these calculations on peptides, and connect the dots from chemistry, to math, to code, to scientific conclusion. As coding becomes more integrated into every type of scientific laboratory, it is essential to include in curriculum examples of the powerful ways that programming can be applied to basic chemistry principles to streamline data analysis.</p>
+<div id="assignment-overview" class="section level1">
+<h1>Assignment Overview</h1>
+<p>In this project, you will be tasked with taking R scripts from this website and applying them towards analytical chemistry questions. Even if you don’t yet have the experience to write original code, learning how to use and modify existing scripts for your own purpose is an essential skill for a scientific career. The project is broken down into several sections, which increase in difficulty and complexity. The sections are described below, with their respective learning goals.</p>
+<hr />
+<div id="downloading-r-and-rstudio" class="section level3">
+<h3>Downloading R and RStudio</h3>
+<ul>
+<li>Before beginning to use R, you must download RStudio onto your computer. This is a user-friendly program that allows you to run R scripts. Instructions for this step are in the ‘Resources’ tab.</li>
+</ul>
 </div>
-<div id="project-overview" class="section level1">
-<h1>Project Overview</h1>
-<p>There are four distinct levels of comfort that one can have with applying code to data. The lowest level is simply to take a script or function that is designed to perform some action (plotting a graph, calculating a pH, etc) and use it to perform that action on an example dataset while following step by step instructions. The second level is to take a script or function and use it on your own original data that hasn’t been analyzed before. The next level would be to take the script or function, and make modifications that tweak what the purpose of the code is. This could be a minor tweak or a major tweak; for example, changing the output of the data from a table to a plot, or taking a pattern matching algorithm designed for DNA sequences and making it work with protein sequences as well. The final level is to write your own code from scratch. The project outlined here will go through all four of these levels, and depending on the experience level of the audience, these different steps can be combined in any number of ways. No matter what level the students are working with, the exposure to programming, and the application of code to scientific questions is a necessary experience to have.</p>
-<p>As described in the background section, the scientific question at hand is to calculate charge, mass, and mass/charge ratio for peptides. We will focus on calculating charge for the first several steps, and then move on to mass and mass/charge for more challenging assignments. The first step, (simply implementing code while following instructions) deals with calculating the charge on a peptide. <a href="https://pubs.acs.org/doi/abs/10.1021/ed100232j">An excellent article by Dr. Paul A. Sims</a> outlines the theory behind this calculation, and the equations that are needed. The second step involves applying this charge calculation to a real world example, Ion Exchange Chromatography, and has the students predict the order that peptides will elute from a column. The third step is divided into two parts, a and b. In ‘a’, students will modify a <code>for</code> loop to obtain charge values for a long list of peptides. In part ‘b’, a function to calculate mass and mass/charge ratio is given, and students must edit these to create a function that predicts m/z for a peptide in MALDI. Finally, the forth step sets forward several questions related to peptide charge and mass for the student to answer using their own ideas and original code.</p>
+<div id="step-1-calculating-the-charge-of-a-peptide" class="section level3">
+<h3>Step 1: Calculating the charge of a peptide</h3>
+<ul>
+<li>You will learn how to take a published R function and use it to obtain data.</li>
+<li>You will see how a derived equation can be translated into code.</li>
+</ul>
+</div>
+<div id="step-2-applying-the-charge-function-to-anion-exchange-chromatography" class="section level3">
+<h3>Step 2: Applying the charge function to anion exchange chromatography</h3>
+<ul>
+<li>You will learn how to apply an existing function to your own data.</li>
+</ul>
+</div>
+<div id="step-3-modifying-code-to-calculate-other-peptide-attributes" class="section level3">
+<h3>Step 3: Modifying code to calculate other peptide attributes</h3>
+<ul>
+<li>You will learn how to modify existing R scripts to suit your needs.</li>
+<li>You will see the potential and utility of customizing and automating data analysis.</li>
+</ul>
+</div>
+<div id="step-4-writing-original-code-to-answer-scientific-questions" class="section level3">
+<h3>Step 4: Writing original code to answer scientific questions</h3>
+<ul>
+<li>You will create your own scripts and functions, building from the previous steps.</li>
+</ul>
+<hr />
+<p>After completing all these steps, you will have an arsenal of R functions for calculating peptide attributes. The overall goal of this assignment is to help you realize both the power of using code in your research and the ease of adapting previously published code to your own questions. As the scientific community moves into larger and larger datasets, these skills become essential.</p>
+<hr />
 <p>Note that the code in this project has been written to be easy to read, not necessarily efficient. However, for the calculations done in these exercises, nothing should take longer than ~1 second on an average computer.</p>
 <hr />
 <p>This website is based on a template from <a href="https://github.com/jules32">jules32</a></p>
+</div>
 </div>
 
 

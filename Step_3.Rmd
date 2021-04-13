@@ -7,7 +7,7 @@ output:
 ---
 
 ## Step 3a: Calculating the charge for a list of many peptides
-Using the `pep_charge()` function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all of these calculations one at a time. Luckily, because you have the `pep_charge()` function available in a  versatile coding language, you are able to automate some of these calculations.  
+Using the `pep_charge()` function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all these calculations one at a time. Luckily, because you have the `pep_charge()` function available in a  versatile coding language, you are able to automate some of these calculations.  
 
 ## Exercise (3a)
 Here is a list of 50 peptides that you have identified in your sample after a proteomics experiment:  
@@ -56,7 +56,7 @@ for (pep in peptides[1:3]) {
 }
 
 ```
-Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? (Some hints are given below in white font... highligth the blank space below to read them.) <font color="purple">Take a screenshot of your modified code, and put it in the assignment.</font>
+Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? (Some hints are given below in white font... highlight the blank space below to read them.) <font color="purple">Take a screenshot of your modified code, and put it in the assignment.</font>
 
 <font color="white">Hint 1: The modification should take place within the `for` loop.  
 Hint 2: The modification involves exchanging one function for a different one.  
@@ -81,11 +81,11 @@ pep_charge <- function(peptide, pH = 7) {
   
   #add a column for counting the number of each potentially charged residue, set at 0 to start
   net_charge_df$count <- 0
-  #for each residue of interest, count the number of occurances in the peptide
+  #for each residue of interest, count the number of occurrences in the peptide
   for (i in 1:nrow(net_charge_df)) {
     net_charge_df$count[i] <- str_count(peptide, net_charge_df$ion_group[i])
   }
-  #set the number of occurences of the n-termini and c-termini to one each
+  #set the number of occurrences of the n-termini and c-termini to one each
   net_charge_df$count[net_charge_df$ion_group == 'N_term'] <- 1
   net_charge_df$count[net_charge_df$ion_group == 'C_term'] <- 1
   
@@ -95,7 +95,7 @@ pep_charge <- function(peptide, pH = 7) {
   
   #check if each ionizable group is acidic or basic.
   #calculate the charge for a single instance of each group. For the acidic groups, this charge will be negative (lost a proton)
-  #these are calculated by determining the fraction of the group that is protanated vs. not protanated using the supplied pH and pKa values
+  #these are calculated by determining the fraction of the group that is protonated vs. not protonated using the supplied pH and pKa values
   for (i in 1:nrow(net_charge_df)){
     if (net_charge_df$ion_type[i] == 'basic') {
       net_charge_df$single_charge[i] <- (10^(net_charge_df$pKa[i] - pH))/((10^(net_charge_df$pKa[i] - pH)) + 1)
@@ -108,7 +108,7 @@ pep_charge <- function(peptide, pH = 7) {
   #create a new column that is the net charge for each ionizable group (simply the charge of one instance * number of instances)
   net_charge_df$net_charge <- net_charge_df$count * net_charge_df$single_charge
   
-  #sum all of the indivdual net charges to produce a total net charge of the peptide.
+  #sum all of the individual net charges to produce a total net charge of the peptide.
   total_net_charge <- sum(net_charge_df$net_charge)
   
   #print the dataframe. This can be commented in or out depending on whether this information is wanted
@@ -120,9 +120,9 @@ pep_charge <- function(peptide, pH = 7) {
 
 ```
 ## Step 3b: Predicting m/z values for peptides in MALDI experiments
-Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a 'matrix' (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample, and desorbs both matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.
+Matrix Assisted Laser Desorption Ionization Time of Flight (MALDI-TOF) mass spectrometry is an excellent way to quickly obtain mass values for analytes in a solution. In this technique, the sample is combined with a 'matrix' (usually some sort of organic acid). This matrix-sample combination is dried on a plate, and placed in the instrument. A laser excites the sample and desorbs both matrix and sample from the plate. In this high energy cloud, some analyte obtains an extra proton from the matrix and becomes positively charged. The m/z value of this analyte is measured by the time it takes to reach an ion detector, after being accelerated by an applied voltage. Analytes with smaller m/z values will travel faster than those with larger m/z values.
 
-![*MALDI-TOF Schematic (wikipedia)*](MALDI_TOF_EN.png){width=50%}  
+![*MALDI-TOF Schematic (Wikipedia)*](MALDI_TOF_EN.png){width=50%}  
 
 ## Exercise (3b)
 You run each of the fractions from exercise 2 on a MALDI-TOF instrument, and obtain mass spectra, which show signal at specific m/z values. You want to calculate the expected m/z values for each of your peptides to see if they are present. Luckily, you find 2 more helpful published R functions. The first takes a peptide, and returns the mass of the peptide in Daltons. The second takes a mass and a charge value and returns m/z. Copy and paste both of these functions into R and run them.
@@ -180,7 +180,7 @@ Hmmm that output seems very high (and negative). What could be wrong? Lets try c
 pep_charge("DIAK", pH = 7)
 pep_mass("DIAK")
 ```
-The mass looks reasonable, but the charge is very close to zero (we actually knew this already from exercise 1). It turns out, when we are dividing mass / charge, we are dividing by a number that is essentially zero, causing the m/z value to balloon to skyrocket.  
+The mass looks reasonable, but the charge is very close to zero (we actually knew this already from exercise 1). It turns out, when we are dividing mass / charge, we are dividing by a number that is essentially zero, causing the m/z value to skyrocket.  
 
 If you think about MALDI however, we don't actually know what the pH is, and so assuming it to be 7 is probably not accurate. In addition, based on your extensive knowledge of MALDI with peptides, you remember that almost all peptides end up with a +1 charge (due to one proton) when they are ionized with this technique. How could you modify the `m_over_z()` function to make it applicable to MALDI? The important aspects are: 
 

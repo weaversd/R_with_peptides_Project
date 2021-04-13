@@ -12,7 +12,7 @@ output:
 RStudio is the best way to use R. It is free to download [here](https://www.rstudio.com/products/rstudio/download/). Simply select 'free' on this webpage, and download the appropriate version for your computer.  
 
 ### RStudio Cloud
-If you don't want to download RStudio to your computer, you can use a limited online version by making an account on [RStudio Cloud](https://rstudio.cloud/). The free version of RStudio Cloud only allows for 15 hours of time per month, but that will be plenty of time to complete this project  
+If you don't want to download RStudio to your computer, you can use a limited online version by making an account on [RStudio Cloud](https://rstudio.cloud/). The free version of RStudio Cloud only allows for 15 hours of time per month, but that will be plenty of time to complete this project.  
 
 ## Navigating RStudio
 When opening up RStudio, the first thing to do is to open a '.R' file. This is just a text file that is formatted for working with R. To do this, go to:  
@@ -26,7 +26,7 @@ The top right window is the 'environment' which is where your variables will sho
 ![](File editor screenshot.png)
 To run code here, highlight what you want to run and then click the 'Run' button in the top right corner of the window. Alternatively, you can run by pressing ctrl+enter.  
 
-The bottom left is the console, which is where all the R code is executed, and any outputs are printed. If you run code from the editor (as described above), it will be executed here. Alternatively, you can run single lines of code here by just typing them out. Here is a a zoomed in screenshot of the console:  
+The bottom left is the console, which is where all the R code is executed, and any outputs are printed. If you run code from the editor (as described above), it will be executed here. Alternatively, you can run single lines of code here by just typing them out. Here is a zoomed in screenshot of the console:  
 ![](Console screenshot.png)  
 
 You'll see that I have run a function: `pep_charge("DIAK", pH = 10)` and got a printout with the result. I've typed, but not yet run, a function called `pep_mass()`. You run code from the console by simply pressing enter.  

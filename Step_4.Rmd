@@ -20,11 +20,11 @@ peptide_summary <- function(peptide, pH){
 ```
 
 ## Exercise (4b)
-We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isolectric point of a peptide, or prediciting its behaivior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK:
+We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isoelectric point of a peptide, or predicting its behavior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK:
 ![*DIAK charge vs pH plot*](DIAK ph charge plot.png)
 This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function `plot()` like this `plot(pH_list, charge_list)`. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.
 
-Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck
+Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck.
 
 ```
 Pseudo code:
@@ -33,7 +33,7 @@ pH is a list of 1000 pH values from 0 to 14
 charge is a list of 1000 values
 
 for each value in list pH,
-  caluclate the charge for peptide "DIAK" and store it in the list charge
+  calculate the charge for peptide "DIAK" and store it in the list charge
   
 plot pH and charge
 ```
@@ -54,7 +54,7 @@ pep_pI <- function(peptide){
 }
 ```
 
-[A paper from Dr. Kozlowski](https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9) nicely presents a methodology to do this. The general idea is to start at an 'average' pH (lets use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider.:
+[A paper from Dr. Kozlowski](https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9) nicely presents a methodology to do this. The general idea is to start at an 'average' pH (let's use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider.:
 
 * How far do we move from the previous pH value to the new one?
 * Do we do this an arbitrary number of times? OR
@@ -65,7 +65,7 @@ An easy answer to the first question is to simply divide the search area in half
 ## Additional Exercises
 Some additional questions and exercises are listed below. Feel free to get creative and answer your own questions!  
 
-* How would we deal with peptides that are modified? For example: <font color="blue>DALC:mK</font>, where the C:m is a modified cysteine residue.
-* Run a comparison study between three different sets of pKa values.
+* How would we deal with peptides that are modified? For example: <font color="blue">DALC:mK</font>, where the C:m is a modified cysteine residue.
+* Run a comparison study between three different sets of pKa values on a standard set of peptides.
 * create a peptide mass function that uses average mass instead of mono-isotopic mass.
 

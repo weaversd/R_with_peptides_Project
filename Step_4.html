@@ -410,15 +410,15 @@ div.tocify {
 </div>
 <div id="exercise-4b" class="section level2">
 <h2>Exercise (4b)</h2>
-<p>We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isolectric point of a peptide, or prediciting its behaivior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK: <img src="DIAK%20ph%20charge%20plot.png" alt="DIAK charge vs pH plot" /> This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function <code>plot()</code> like this <code>plot(pH_list, charge_list)</code>. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.</p>
-<p>Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck</p>
+<p>We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isoelectric point of a peptide, or predicting its behavior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK: <img src="DIAK%20ph%20charge%20plot.png" alt="DIAK charge vs pH plot" /> This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function <code>plot()</code> like this <code>plot(pH_list, charge_list)</code>. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.</p>
+<p>Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck.</p>
 <pre><code>Pseudo code:
 
 pH is a list of 1000 pH values from 0 to 14
 charge is a list of 1000 values
 
 for each value in list pH,
-  caluclate the charge for peptide &quot;DIAK&quot; and store it in the list charge
+  calculate the charge for peptide &quot;DIAK&quot; and store it in the list charge
   
 plot pH and charge</code></pre>
 <pre><code>Helpful functions:
@@ -434,7 +434,7 @@ length(x) returns the length of a vector or list x</code></pre>
   #your code goes here
   
 }</code></pre>
-<p><a href="https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9">A paper from Dr. Kozlowski</a> nicely presents a methodology to do this. The general idea is to start at an ‘average’ pH (lets use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider.:</p>
+<p><a href="https://biologydirect.biomedcentral.com/articles/10.1186/s13062-016-0159-9">A paper from Dr. Kozlowski</a> nicely presents a methodology to do this. The general idea is to start at an ‘average’ pH (let’s use 7) and see what the charge is. Depending on whether it is positive or negative, try a new pH that is lower or higher, and repeat this process until you reach zero charge. There are several things to consider.:</p>
 <ul>
 <li>How far do we move from the previous pH value to the new one?</li>
 <li>Do we do this an arbitrary number of times? OR</li>
@@ -446,8 +446,8 @@ length(x) returns the length of a vector or list x</code></pre>
 <h2>Additional Exercises</h2>
 <p>Some additional questions and exercises are listed below. Feel free to get creative and answer your own questions!</p>
 <ul>
-<li>How would we deal with peptides that are modified? For example: &lt;font color="blue&gt;DALC:mK</font>, where the C:m is a modified cysteine residue.</li>
-<li>Run a comparison study between three different sets of pKa values.</li>
+<li>How would we deal with peptides that are modified? For example: <font color="blue">DALC:mK</font>, where the C:m is a modified cysteine residue.</li>
+<li>Run a comparison study between three different sets of pKa values on a standard set of peptides.</li>
 <li>create a peptide mass function that uses average mass instead of mono-isotopic mass.</li>
 </ul>
 </div>

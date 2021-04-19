@@ -39,3 +39,4 @@ pep_pI <- function(peptide, confidence = 0.0001) {
   #return the pH at charge ~0, which is the pI
   return(pH)
 }
+

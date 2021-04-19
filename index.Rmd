@@ -1,5 +1,5 @@
 ---
-title: "Peptide calcualtions with R: an introduction to programming as a chemistry tool"
+title: "Peptide calculations with R: an introduction to programming as a chemistry tool"
 author:  "By [Simon Weaver](https://weaversd.github.io/), graduate student at the University of Notre Dame"
 output:
   html_document

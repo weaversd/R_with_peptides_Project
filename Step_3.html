@@ -506,6 +506,7 @@ m_over_z &lt;- function(peptide, pH = 7) {
 <li>The charge will always be +1</li>
 <li>The mass will be the mass of the peptide <em>plus the mass of a proton</em> which is approximately 1.008 Da.</li>
 </ul>
+<p>Note that the <code>pep_mass()</code> function above is designed for calculating mono-isotopic mass. We know that there are different isotopes that result in shifted masses, but for this purpose we are interested in the mono-isotopic mass because that is generally the most intense peak in peptide MALDI spectra.</p>
 <p><font color="purple">Take a screenshot of your modified <code>m_over_z()</code> function and paste it in your assignment. What are the expected MALDI m/z values for each peptide from Exercise 2?</font></p>
 </div>
 

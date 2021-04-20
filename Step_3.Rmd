@@ -187,4 +187,6 @@ If you think about MALDI however, we don't actually know what the pH is, and so 
 * The charge will always be +1
 * The mass will be the mass of the peptide *plus the mass of a proton* which is approximately 1.008 Da.  
 
+Note that the `pep_mass()` function above is designed for calculating mono-isotopic mass. We know that there are different isotopes that result in shifted masses, but for this purpose we are interested in the mono-isotopic mass because that is generally the most intense peak in peptide MALDI spectra.
+
 <font color="purple">Take a screenshot of your modified `m_over_z()` function and paste it in your assignment. What are the expected MALDI m/z values for each peptide from Exercise 2?</font>

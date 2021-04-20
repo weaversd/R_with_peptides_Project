@@ -124,6 +124,9 @@ pep_charge(peptide = "DIAK", pH = 7.0)
 The first printout is the dataframe that we used to create each charge. Can you tell what each column is for? Read through the `pep_charge()` code above, and compare it to this dataframe to determine how each value is calculated.
 
 The second printout is the net charge that we calculated. It is negative, but very close to 0, indicating that this peptide is close to neutral at pH 7.0 even though there are 4 charged groups. This is because the positive charges of the N-terminus and the Lysine cancel out the negative charges of the Aspartate and the C-terminus. Lets try the same thing at pH 3.0.
+
+Notice that there are a lot of extra significant figures in these printouts. There are ways to deal with this if you want to (look up the `round()` function), but for the purpose of this project we aren't going to worry about that. It's never a bad idea to carry extra sig figs through your calculations, and its ultimately up to the researcher to decide how many figures to report in the final result.
+
 ```{r}
 pep_charge(peptide = "DIAK", pH = 3.0)
 ```

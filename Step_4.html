@@ -398,6 +398,7 @@ div.tocify {
 <div id="further-applications---peptide-summary-function-ph-vs-charge-plot-isoelectric-point-calculator" class="section level2">
 <h2>Further applications - Peptide summary function, pH vs charge plot, Isoelectric point calculator</h2>
 <p>For steps 1-3, hopefully most students were able to follow along and complete the objectives. The point of this project is to show that even without an extensive knowledge of coding, it is possible to take published scripts and functions and use them for your own data, even making simple modifications. Step 4 involves writing your own code from scratch, which I acknowledge takes more experience and more extensive background knowledge with a programming language. However, there are many excellent free resources online for diving into this sort of challenge. The best way to start out coding from scratch is to identify a question and work at it until a solution presents itself. In this section I will present several ‘questions’ that relate to the problems discussed in steps 1-3. There are many ways to successfully complete these challenges, but I will post possible solutions for each one <a href="https://github.com/weaversd/R_with_peptides_Project/tree/gh-pages/R_scripts">here</a> on git-hub. They are roughly in order of difficulty from easiest to hardest.</p>
+<p>There are some general tips at the bottom of this page if you are stuck but don’t want to look at the answers! In addition, going back to <a href="https://www.tutorialspoint.com/r/index.htm">Tutorialspoint.com</a> after you have done some exercises can be a great way to reinforce what you’ve learned and pick up on new stuff.</p>
 </div>
 <div id="exercise-4a" class="section level2">
 <h2>Exercise (4a)</h2>
@@ -410,7 +411,7 @@ div.tocify {
 </div>
 <div id="exercise-4b" class="section level2">
 <h2>Exercise (4b)</h2>
-<p>We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isoelectric point of a peptide, or predicting its behavior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK: <img src="DIAK%20ph%20charge%20plot.png" alt="DIAK charge vs pH plot" /> This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function <code>plot()</code> like this <code>plot(pH_list, charge_list)</code>. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.</p>
+<p>We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isoelectric point of a peptide, or predicting its behavior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK: <img src="DIAK%20ph%20charge%20plot.png" alt="DIAK charge vs pH plot" /> This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function <code>plot()</code> like this <code>plot(pH_list, charge_list)</code>. If you are interested in data visualization, there is a very powerful package called <a href="https://ggplot2.tidyverse.org/">ggplot2</a> that is relatively easy to understand and can create beautiful graphs and charts.</p>
 <p>Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck.</p>
 <pre><code>Pseudo code:
 
@@ -450,6 +451,25 @@ length(x) returns the length of a vector or list x</code></pre>
 <li>Run a comparison study between three different sets of pKa values on a standard set of peptides.</li>
 <li>create a peptide mass function that uses average mass instead of mono-isotopic mass.</li>
 </ul>
+</div>
+<div id="helpful-tips" class="section level2">
+<h2>Helpful tips</h2>
+<div id="anatomy-of-a-function" class="section level3">
+<h3>Anatomy of a function</h3>
+<div class="figure">
+<img src="Anatomy%20of%20a%20function.png" style="width:75.0%" alt="" />
+<p class="caption"><em>From tutorialspoint.com/r</em></p>
+</div>
+<p><a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/">Here is a great tutorial on how to write functions in R</a></p>
+</div>
+<div id="how-to-call-a-function-within-a-function" class="section level3">
+<h3>How to call a function within a function</h3>
+<p>This is an incredibly important aspect of writing functions. You often want to create a function that makes use of another function that you’ve already written. For an example of this, go back to <em>Step 1</em> and look at the <code>pep_charge()</code> function. This is a function that is written from scratch, but it uses several other functions within it. The first thing it does, is to call the function <code>toupper()</code> on <code>peptide</code>. It then assigns the result of this computation to the variable <code>peptide</code>, essentially overriding it. <code>toupper()</code> is a function, and you can use it (or any other function) within another function the same way you would in the terminal: typing it and supplying arguments. However, within a function, you often want to assign the output of the function to a variable with the <code>&lt;-</code> symbol. See if you can find other examples of this throughout the exercise, like in the <code>pep_mass()</code> function.</p>
+</div>
+<div id="the-difference-between-print-and-return" class="section level3">
+<h3>The difference between <code>print()</code> and <code>return()</code></h3>
+<p><code>print()</code> is simply a function to show the user the result of some calculation, by ‘printing’ it in the terminal. The computer can’t use this value. <code>return()</code> is often used within a function, and it stores or ‘returns’ the result of a calculation so that the computer is able to use it. This value is what is saved when the output of a function is stored in a variable. Using <code>print()</code> won’t disrupt a function (it is only there for the user’s benefit), but using ’<code>return()</code> will end a function.</p>
+</div>
 </div>
 
 

@@ -9,6 +9,8 @@ output:
 ## Further applications - Peptide summary function, pH vs charge plot, Isoelectric point calculator
 For steps 1-3, hopefully most students were able to follow along and complete the objectives. The point of this project is to show that even without an extensive knowledge of coding, it is possible to take published scripts and functions and use them for your own data, even making simple modifications. Step 4 involves writing your own code from scratch, which I acknowledge takes more experience and more extensive background knowledge with a programming language. However, there are many excellent free resources online for diving into this sort of challenge. The best way to start out coding from scratch is to identify a question and work at it until a solution presents itself. In this section I will present several 'questions' that relate to the problems discussed in steps 1-3. There are many ways to successfully complete these challenges, but I will post possible solutions for each one [here](https://github.com/weaversd/R_with_peptides_Project/tree/gh-pages/R_scripts) on git-hub. They are roughly in order of difficulty from easiest to hardest.
 
+There are some general tips at the bottom of this page if you are stuck but don't want to look at the answers! In addition, going back to [Tutorialspoint.com](https://www.tutorialspoint.com/r/index.htm) after you have done some exercises can be a great way to reinforce what you've learned and pick up on new stuff.
+
 ## Exercise (4a)
 We now have functions that calculate the charge of a peptide, the mass of a peptide, the m/z at a given pH of a peptide, and the expected m/z of a peptide in a MALDI spectrum. It would be helpful if we had a function that could summarize all of them. The goal for this function is to take a peptide and a pH, and print out all of the attributes we can calculate. Here is a framework with which to write your function.
 ```{r}
@@ -22,7 +24,7 @@ peptide_summary <- function(peptide, pH){
 ## Exercise (4b)
 We have a function that can calculate the charge of a peptide at any given pH. Can we use this to create a plot of the charge of a peptide over a large range of pH? This is useful for quickly estimating the isoelectric point of a peptide, or predicting its behavior in different buffers or separation methods. The goal of this exercise is to create a plot like this, which is for the peptide DIAK:
 ![*DIAK charge vs pH plot*](DIAK ph charge plot.png)
-This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function `plot()` like this `plot(pH_list, charge_list)`. If you are interested in data visualization, there is a very powerful package called ggplot2 that is relatively easy to understand and can create beautiful graphs and charts.
+This takes some knowledge of how to create plots in R. The easiest way is to simply call two vectors or lists which are x and y coordinates to the function `plot()` like this `plot(pH_list, charge_list)`. If you are interested in data visualization, there is a very powerful package called [ggplot2](https://ggplot2.tidyverse.org/) that is relatively easy to understand and can create beautiful graphs and charts.
 
 Try doing this from scratch. Some pseudocode is below to help you get started if you are stuck.
 
@@ -68,4 +70,19 @@ Some additional questions and exercises are listed below. Feel free to get creat
 * How would we deal with peptides that are modified? For example: <font color="blue">DALC:mK</font>, where the C:m is a modified cysteine residue.
 * Run a comparison study between three different sets of pKa values on a standard set of peptides.
 * create a peptide mass function that uses average mass instead of mono-isotopic mass.
+
+
+## Helpful tips
+
+### Anatomy of a function
+
+![*From tutorialspoint.com/r*](Anatomy of a function.png){width=75%}  
+
+[Here is a great tutorial on how to write functions in R](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/)
+
+### How to call a function within a function
+This is an incredibly important aspect of writing functions. You often want to create a function that makes use of another function that you've already written. For an example of this, go back to *Step 1* and look at the `pep_charge()` function. This is a function that is written from scratch, but it uses several other functions within it. The first thing it does, is to call the function `toupper()` on `peptide`. It then assigns the result of this computation to the variable `peptide`, essentially overriding it. `toupper()` is a function, and you can use it (or any other function) within another function the same way you would in the terminal: typing it and supplying arguments. However, within a function, you often want to assign the output of the function to a variable with the `<-` symbol. See if you can find other examples of this throughout the exercise, like in the `pep_mass()` function.
+
+### The difference between `print()` and `return()`
+`print()` is simply a function to show the user the result of some calculation, by 'printing' it in the terminal. The computer can't use this value. `return()` is often used within a function, and it stores or 'returns' the result of a calculation so that the computer is able to use it. This value is what is saved when the output of a function is stored in a variable. Using `print()` won't disrupt a function (it is only there for the user's benefit), but using '`return()` will end a function.
 

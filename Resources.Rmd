@@ -34,7 +34,7 @@ You'll see that I have run a function: `pep_charge("DIAK", pH = 10)` and got a p
 ## Installing packages
 For this project, you will need to have the package `stringr` installed in your environment. There are several ways to do this (try googling 'install package R') but the easiest thing to do is to click on the 'packages' tab in the bottom right window. From there, click on 'Install', and type 'stringr' into the packages box. Press 'Install' and RStudio will import your package for you (it may take ~10 seconds). See the screenshots below for help with this process:  
 
-![*Install a package: Got to 'packages' > 'Install'*](package install.png) 
+![*Install a package: Go to 'packages' > 'Install'*](package install.png) 
 
 ![*Install a package: Type 'stringr' into the packages field, and press Install*](stringr install.png) 
 

@@ -490,6 +490,7 @@ pep_charge &lt;- function(peptide, pH = 7) {
 <p>The exercise for step one is simple. Simply run the function with an example peptide: <font color="blue">DIAK</font>. <img src="DIAK.png" style="width:40.0%" alt="DIAK Structure" /></p>
 <p>This peptide has 4 ionizable groups: Aspartic acid, Lysine, the N-terminus, and the C-terminus. We will evaluate the charge of this peptide at 2 different pH values: 7.0 and 3.0.</p>
 <p>After ensuring that you have loaded the <code>pep_charge()</code> function, try it out in the console. We will set <code>peptide = "DIAK"</code> and <code>pH = 7.0</code> first. Type or copy and paste the code below into your console and press enter.</p>
+<p><em>If you aren’t exactly sure what a function is, try reading <a href="https://www.cs.utah.edu/~germain/PPS/Topics/functions.html">this definition</a>. The short answer is that a function is a command you give the computer that carries out some specfic task or calculation.</em></p>
 <pre class="r"><code>pep_charge(peptide = &quot;DIAK&quot;, pH = 7.0)</code></pre>
 <pre><code>##   ion_group ion_type  pKa count single_charge net_charge
 ## 1    N_term    basic  8.6     1  0.9754966324  0.9754966
@@ -502,6 +503,7 @@ pep_charge &lt;- function(peptide, pH = 7) {
 ## 8         Y   acidic 10.1     0 -0.0007936978  0.0000000
 ## 9    C_term   acidic  3.6     1 -0.9996020513 -0.9996021</code></pre>
 <pre><code>## [1] -0.02347019</code></pre>
+<p>Note that to execute a function, you simply type the function (<code>pep_charge</code> in this case) followed by a set of parentheses <code>()</code>. Within the parentheses, you supply <em>arguments</em> to the function. <code>pep_charge</code> takes two arguments: one called ‘peptide’, and one called ‘pH’. by typing <code>peptide = "DIAK", pH = 7.0</code> within the parentheses, we are telling the function to perform its calculations using the peptide DIAK at pH 7.0.</p>
 <p>The first printout is the dataframe that we used to create each charge. Can you tell what each column is for? Read through the <code>pep_charge()</code> code above, and compare it to this dataframe to determine how each value is calculated.</p>
 <p>The second printout is the net charge that we calculated. It is negative, but very close to 0, indicating that this peptide is close to neutral at pH 7.0 even though there are 4 charged groups. This is because the positive charges of the N-terminus and the Lysine cancel out the negative charges of the Aspartate and the C-terminus. Lets try the same thing at pH 3.0.</p>
 <p>Notice that there are a lot of extra significant figures in these printouts. There are ways to deal with this if you want to (look up the <code>round()</code> function), but for the purpose of this project we aren’t going to worry about that. It’s never a bad idea to carry extra sig figs through your calculations, and its ultimately up to the researcher to decide how many figures to report in the final result.</p>

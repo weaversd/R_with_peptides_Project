@@ -117,10 +117,15 @@ The exercise for step one is simple. Simply run the function with an example pep
 
 This peptide has 4 ionizable groups: Aspartic acid, Lysine, the N-terminus, and the C-terminus. We will evaluate the charge of this peptide at 2 different pH values: 7.0 and 3.0. 
 
-After ensuring that you have loaded the `pep_charge()` function, try it out in the console. We will set `peptide = "DIAK"` and `pH = 7.0` first. Type or copy and paste the code below into your console and press enter.
+After ensuring that you have loaded the `pep_charge()` function, try it out in the console. We will set `peptide = "DIAK"` and `pH = 7.0` first. Type or copy and paste the code below into your console and press enter. 
+
+*If you aren't exactly sure what a function is, try reading [this definition](https://www.cs.utah.edu/~germain/PPS/Topics/functions.html). The short answer is that a function is a command you give the computer that carries out some specfic task or calculation.*
+
 ```{r}
 pep_charge(peptide = "DIAK", pH = 7.0)
 ```
+Note that to execute a function, you simply type the function (`pep_charge` in this case) followed by a set of parentheses `()`. Within the parentheses, you supply *arguments* to the function. `pep_charge` takes two arguments: one called 'peptide', and one called 'pH'. by typing `peptide = "DIAK", pH = 7.0` within the parentheses, we are telling the function to perform its calculations using the peptide DIAK at pH 7.0.
+
 The first printout is the dataframe that we used to create each charge. Can you tell what each column is for? Read through the `pep_charge()` code above, and compare it to this dataframe to determine how each value is calculated.
 
 The second printout is the net charge that we calculated. It is negative, but very close to 0, indicating that this peptide is close to neutral at pH 7.0 even though there are 4 charged groups. This is because the positive charges of the N-terminus and the Lysine cancel out the negative charges of the Aspartate and the C-terminus. Lets try the same thing at pH 3.0.

@@ -7,12 +7,26 @@ output:
 ---
 
 ## Accessing R
+To use R on your computer, you need to download 'R' itself (you can think of this as the engine), as well as a program called RStudio which is an application that lets you use R. The steps to download both of these are below.  
 
-### RStudio
-RStudio is the best way to use R. It is free to download [here](https://www.rstudio.com/products/rstudio/download/). Simply select 'free' on this webpage, and download the appropriate version for your computer.  
+Alternatively, if you don't want to install anything on your computer you can use RStudio Cloud, which is a limitted online version. If you choose this option, make an account on [RStudio Cloud by following this link](https://rstudio.cloud/). The free version of RStudio Cloud only allows for 15 hours of time per month, but that will be plenty of time to complete this project.  
 
-### RStudio Cloud
-If you don't want to download RStudio to your computer, you can use a limited online version by making an account on [RStudio Cloud](https://rstudio.cloud/). The free version of RStudio Cloud only allows for 15 hours of time per month, but that will be plenty of time to complete this project.  
+To install the programs on your own computer, follow the instructions below. Alternatively, [here is a video](https://www.youtube.com/watch?v=NZxSA80lF1I) that goes through the process on Windows, and [here is a video](https://www.youtube.com/watch?v=cCgiR1uwXzU&t=0s) that goes through the process on a Mac.  
+
+### Downloading R
+To install the R language, go to [this link](https://cran.r-project.org/) and select the Download link that is correct for your operating system. On the next page, select the link 'base', which is just the normal version of R.  
+  
+**For Windows** users, select the link called 'base', which is just the normal version of R. On the next page, click the big 'Download R' link at the top of the page (the link will also have the version number in the title), which will start your download. When the file has downloaded, open the '.exe' file, and click through the installer prompts leaving all the default options.  
+  
+**For Mac** users, find the heading that says 'Latest release:' and click on the link for the newest version of R, which will look like 'R-x.y.z.pkg', where 'x.y.z' is the version number. This will start your download. At this point, open the '.pkg' file, and click through the installer prompts, leaving all of the default options.  
+
+You now have R installed on your computer! Lets move on to RStudio.
+
+### Downloading RStudio
+RStudio is the program that lets you use R. It is free to download [here](https://www.rstudio.com/products/rstudio/download/). There are several versions of RStudio, but the one you want is **RStudio Desktop**. Scroll down after following the link, and select 'Download' below this option. The website will automatically suggest either the windows or mac version of RStudio, and go ahead and click 'Download' for the appropriate version for your machine. Once downloaded, run the '.exe' file (for Windows) or the '.pgk' file (for Mac). Click through the installer prompts, leaving all the default options. Once this is complete, you should be ready to go! *(If you are on a mac, don't forget to drag the RStudio icon into your applications folder when given the opportunity.)*
+
+Once downloaded, you can open RStudio the way you would any other application or program. When you first open the program, it should give you information about what version of R you are using.
+
 
 ## Navigating RStudio
 When opening up RStudio, the first thing to do is to open a '.R' file. This is just a text file that is formatted for working with R. To do this, go to:  
@@ -22,11 +36,11 @@ File > New File > R script
 At this point there should be four windows open, and it will look something like this:  
 ![](RStudio Screenshot.png)  
 
-The top right window is the 'environment' which is where your variables will show up. You don't have to worry too much about this. The bottom right window is a file explorer. This can be very useful, but you won't use it in this project much. The top left is the text editor. This is where you can copy and paste blocks of code that you want to use and maybe edit later. Here is a zoomed in screenshot of this window: 
+The top right window is the 'environment' which is where your variables and functions will show up. You don't have to worry too much about this. The bottom right window is a file explorer. This can be very useful, but you won't use it in this project much. The top left is the text editor. This is where you can copy and paste blocks of code that you want to use and maybe edit later. Here is a zoomed in screenshot of this window: 
 ![](File editor screenshot.png)
-To run code here, highlight what you want to run and then click the 'Run' button in the top right corner of the window. Alternatively, you can run by pressing ctrl+enter.  
+To run code here, highlight what you want to run and then click the 'Run' button in the top right corner of the window. Alternatively, you can run by pressing ctrl+enter. **If you edit your code in this window, you will need to run it again by re-highlighting the edited code and pressing 'Run' again.** Otherwise, the updated code won't take effect. 
 
-The bottom left is the console, which is where all the R code is executed, and any outputs are printed. If you run code from the editor (as described above), it will be executed here. Alternatively, you can run single lines of code here by just typing them out. Here is a zoomed in screenshot of the console:  
+The bottom left window of RStudio is the console, which is where all the R code is executed, and any outputs are printed. If you run code from the editor (as described above), it will be executed here. Alternatively, you can run single lines of code here by just typing them out. Here is a zoomed in screenshot of the console:  
 ![](Console screenshot.png)  
 
 You'll see that I have run a function: `pep_charge("DIAK", pH = 10)` and got a printout with the result. I've typed, but not yet run, a function called `pep_mass()`. You run code from the console by simply pressing enter.  
@@ -39,7 +53,7 @@ For this project, you will need to have the package `stringr` installed in your 
 ![*Install a package: Type 'stringr' into the packages field, and press Install*](stringr install.png) 
 
 ## Definitions
-While the goal of this project is to get the student using R without going through an intense training process, it still is helpful to know several key definitions. [Tutorialspoint.com](https://www.tutorialspoint.com/r/index.htm) breaks down R to the basics, and I reccomend you read just a little bit about R here before you start (Not more than 10 or 15 minutes). For the purpose of this project, focus on the tabs called 'Variables', 'Decision Making', 'Loops', and 'Functions'.
+While the goal of this project is to get you using R without going through an intense training process, it still is helpful to know several key definitions. [Tutorialspoint.com](https://www.tutorialspoint.com/r/index.htm) breaks down R to the basics, and I recommend you read just a little bit about R here before you start (Not more than 10 or 15 minutes). For the purpose of this project, focus on the tabs called 'Variables', 'Decision Making', 'Loops', and 'Functions'. If you don't understand some, or even most of this, that's ok! It may be helpful to have this page open in a browser tab while working through the exercises for you to reference as needed.
 
 ## Helpful links
 There are many online resources for R and Rstudio. Here are a couple of good links if you are stuck or want to learn more:  

@@ -7,7 +7,7 @@ output:
 ---
 
 ## Step 3a: Calculating the charge for a list of many peptides
-Using the `pep_charge()` function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced above, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all these calculations one at a time. Luckily, because you have the `pep_charge()` function available in a  versatile coding language, you are able to automate some of these calculations.  
+Using the `pep_charge()` function, you were able to calculate the charge for 5 peptides at 3 pH values each. That involved using the function 15 times, which is doable, but slightly tedious. You could have done this same exercise with any of the online tools referenced previously, and although it might not have been as educational, you would have achieved the same result. Now say that you have a mixture of 50, or 100, or even 1000 peptides. It suddenly becomes incredibly time-consuming to do all these calculations one at a time. Luckily, because you have the `pep_charge()` function available in a  versatile coding language, you are able to automate some of these calculations.  
 
 ## Exercise (3a)
 Here is a list of 52 peptides that you have identified in your sample after a proteomics experiment:  
@@ -21,7 +21,7 @@ The code below imports them into R, storing them in a list called `peptides`. Co
 peptides <- list("HSTIFENLANK", "HTFMGVVSLGSPSGEVSHPR", "HTLNQIDEVK", "IDVHLVPDR", "IRLENEIQTYR", "ITQVLHFTK", "IVSSAMEPDREYHFGQAVR", "KAEEEHLGILGPQLHADVGDK", "KCPLPGTAAFK", "KPVDEYKDCHLAQVPSHTVVAR", "KPVEEYANCHLAR", "KQTALVELVK", "KVPQVSTPTLVEVSR", "KYLYEIAR", "LDELRDEGK", "LKYENEVALR", "LQHLENELTHDIITK", "LSINTHPSQKPLSITVR", "LVHVEEPHTETVR", "LVNEVTEFAK", "LVRPEVDVMCTAFHDNEETFLK", "LVRPEVDVMCTAFHDNEETFLKK", "LYHSEAFTVNFGDTEEAKK", "MRPSTDTITVMVENSHGLR", "NECFLQHKDDNPNLPR", "PDYSVVLLLR", "PSLVEQVFLDK", "PVPGHVTVSICR", "QEPERNECFLQHK", "QEPERNECFLQHKDDNPNLPR", "QHIEAIDVR", "QNCELFEQLGEYK", "QSVEADINGLRR", "QEPERNECFLQHKDDNPNLPR", "QTALVELVK", "RHPDYSVVLLLR", "RPCFSALEVDETYVPK", "RYLYEIAR", "SLHTLFGDK", "SPAFTDLHLR", "SSNLIILEEHLK", "TFHADICTLSEK", "THLAPYSDELR", "THLPEVFLSK", "VDLSFSPSQSLPASHAHLR", "VFDEFKPLVEEPQNLIK", "VHTECCHGDLLECADDR", "VHTECCHGDLLECADDRADLAK", "VLANGHAPYSR", "VLGYVVEMQPK", "VPQVSTPTLVEVSR", "VQFELHYQEVK")
 ```
 
-You may not know exactly how to make your function run individually on many different peptides, but luckily you found another published script that does something related. In this case, the function `pep_length()` calculates the number of amino acids in a sequence. Then, below that, the author wrote a `for` loop that goes through a list of peptides (just like the one you have!) and calculates and prints the length for each one. Copy and paste the code below to your '.R' file, and run it.
+You may not know exactly how to make your function run individually on many different peptides, but luckily you found another published script that does something related. In this case, the **function `pep_length()`** calculates the number of amino acids in a sequence. Then, below that, the author wrote a `for` loop that goes through a list of peptides (just like the one you have!) and calculates and prints the length for each one. Copy and paste the code below to your '.R' file, and run it.
 ```{r, results = 'hide'}
 #function that returns the number of amino acids in a peptide
 pep_length <- function(peptide) {
@@ -56,13 +56,59 @@ for (pep in peptides[1:3]) {
 }
 
 ```
-Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? (Some hints are given below in white font... highlight the blank space below to read them.) <font color="purple">Take a screenshot of your modified code, and put it in the assignment.</font>
+Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge?  
 
-<font color="white">Hint 1: The modification should take place within the `for` loop.  
-Hint 2: The modification involves exchanging one function for a different one.  
-Hint 3: `pep_length()` is a function, just like `pep_charge()`. In this case, both include `peptide = pep`, but `pep_charge()` also takes an additional argument.</font>
+You may already have an idea on how to make this happen, that's great! However, let's go through an exercise to logically think through what needs to be changed. Here are three general questions we can ask, that sometimes help to figure out a good next step.  
+
+**What does the code do? What are the inputs and what are the outputs?**  
+<details>
+  <summary>Click for a possible answer</summary>
+    *We are talking about the `for` loop here. The `for` loop takes in a list of peptides, and in this case the list is called `peptides`. For each item in the list, it prints out the peptide (within the `for` loop, the variable `pep` refers to whichever peptide the loop is currently on). The loop calculates the length of the peptide using the function `pep_length()`, and stores that value in the variable `peptide_length`. Then the `for` loop prints out the variable `peptide_length`, which is a number that was calculated in the previous line. The process is repeated for each peptide in the list `peptides`*
+</details>  
+<br/> 
+  
+**What do we want the code to do? What inputs do we have, and what do we expect as outputs?**  
+<details>
+  <summary>Click for a possible answer</summary>
+    *We have a list of peptides, also called `peptides`. We want to use this as the input. For each peptide, we want to calculate the charge at pH 7.0. The outputs will be a printout of the peptide, followed by a printout of its charge*
+</details>  
+<br/>
+  
+**What parts of the existing code already do what we want, and what parts need to change?**    
+<details>
+  <summary>Click for a possible answer</summary>
+    *The input to the `for` loop is exactly the same: a list of peptides called `peptides`. Great! The existing loop prints out the name of each peptide (`pep` in this case). That's also fine to stay as is.*  
+
+*The existing loop calculates a length, and saves it as a variable `peptide_length`. We don't want that. However, you do know a function (from exercises 1 and 2) that calculates the charge of a peptide, which is what we want! How about we use that function instead of `pep_length()`. Instead of saving the charge value to the variable `peptide_length`, how about we save it to a different new variable. Maybe `peptide_charge` will work? You can copy the formatting from the existing `for` loop, but change the function and the name of the variable. The function `pep_charge()` takes two arguments: a peptide, and a pH. The peptide part is the same as the existing loop, but we need to specify the pH. Look back at exercise 1 to remember how to format the `pep_charge() function.*  
+
+*Finally, the existing code prints out the variable `peptide_length`. We just made a new variable called `peptide_charge`. Can you print that out instead?*
+</details>   
+<br/>
+  
+
+Hopefully answering those questions yourself, or reading through a possible answer above helped you think through the changes that you need to make. <font color="purple">Copy and paste a screenshot of your modified code that prints out the charges of all 52 peptides into your assignment (You don't need to take a screenshot of all the values, just a picture of the `for` loop that you modified.</font> **Remember that when you change the code, make sure you highlight it and click 'Run' again.**
 
 If it worked correctly, you might get an output that includes the correct charges, but also includes the dataframe used to calculate the charge for each peptide. That is a lot of information, and not necessary in this case. Go back to your original `pep_charge()` function from exercise 1. Find the line that prints out the `net_charge_df` and delete it or comment it out (putting a `#` symbol in front of a line of code tells the computer to ignore it - this is referred to as 'commenting out a line'). Re-run that original `pep_charge()` function to save the change, and then re-run your 'for loop' to print out the values. Is that more manageable?  
+
+<details>
+  <summary>Click for an additional hint if you're stuck</summary>
+    *One very important 'motif' in R coding is seen in the original `for` loop above. Lets take a closer look at this particular line:*  
+```{r, eval=F}
+peptide_length <- pep_length(peptide = pep)
+```  
+*`peptide_length` is a variable, `pep_length()` is a function, and `peptide = pep` within the parenthesis is the argument for the function. `<-` is the assignment symbol in R (think of it as an arrow pointing to the left). It means that the value on the right of the symbol is stored in the variable written to the left of the symbol.*  
+
+*A more general version of this line of code is:*  
+```{r, eval=F}
+variable <- function(argument1 = input_value1, argument2 = input_value2)
+``` 
+
+*The function does some sort of calculation based on the inputs, and returns a value. This value is then stored in the variable.*
+
+*Can you copy the line of code above, but replace each section with the information needed to calculate the charge on each peptide within the `for` loop? The variable is a new one: `peptide_charge`. The function is from exercise 1: `pep_charge()`. `argument1` for this function is called `peptide`, and it is `=` to `pep` within the `for` loop. `argument2` is called `pH`, and it is `=` to `7.0` for the purpose of this calculation. Remember to re-highlight and press 'Run' when you've changed your loop!*
+</details>   
+<br/>
+
 ```{r, echo=FALSE}
 #Calculate Charge of a peptide at a specific pH
 pep_charge <- function(peptide, pH = 7) {
@@ -185,7 +231,28 @@ The mass looks reasonable, but the charge is very close to zero (we actually kne
 If you think about MALDI however, we don't actually know what the pH is, and so assuming it to be 7 is probably not accurate. In addition, based on your extensive knowledge of MALDI with peptides, you remember that almost all peptides end up with a +1 charge (due to one proton) when they are ionized with this technique. How could you modify the `m_over_z()` function to make it applicable to MALDI? The important aspects are: 
 
 * The charge will always be +1
-* The mass will be the mass of the peptide *plus the mass of a proton* which is approximately 1.008 Da.  
+* The mass will be the mass of the peptide *plus the mass of a proton* which is approximately **1.008 Da**. 
+
+Lets think through those same three questions we asked in exercise 3a. <font color="purple">Write out answers to these questions in your assignment.   
+
+**What does the code do? What are the inputs and what are the outputs?**  
+**What do we want the code to do? What inputs do we have, and what do we expect as outputs?**  
+**What parts of the existing code already do what we want, and what parts need to change?** </font> 
+
+<details>
+  <summary>Click for an additional hint if you're stuck</summary>
+    *To calculate m/z we need to have a mass divided by a charge. Can you see where this is done in the original function? Which variable stores mass, and which stores charge? Do we need the charge varibale, or is that a fixed value for MALDI?*  
+
+*Dividing in R is as simple as taking one variable, writing '/' and writing another variable. For example, if I had a varible `tacos` that was the number of tacos I bought, and another variable `cost` that was how much I paid for all the tacos, I could calculate a variable `price_per_taco` by doing:*  
+```{r, eval=F}
+price_per_taco <- tacos / cost
+```
+*The same goes for adding. If I left a tip of $2 when I bought the tacos, I could calculate a variable* `total_cost` by doing:  
+```{r, eval=F}
+total_cost <- cost + 2
+```
+</details>   
+<br/>
 
 Note that the `pep_mass()` function above is designed for calculating mono-isotopic mass. We know that there are different isotopes that result in shifted masses, but for this purpose we are interested in the mono-isotopic mass because that is generally the most intense peak in peptide MALDI spectra.
 

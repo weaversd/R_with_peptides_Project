@@ -14,7 +14,7 @@ Alternatively, if you don't want to install anything on your computer you can us
 To install the programs on your own computer, follow the instructions below. Alternatively, [here is a video](https://www.youtube.com/watch?v=NZxSA80lF1I) that goes through the process on Windows, and [here is a video](https://www.youtube.com/watch?v=cCgiR1uwXzU&t=0s) that goes through the process on a Mac.  
 
 ### Downloading R
-To install the R language, go to [this link](https://cran.r-project.org/) and select the Download link that is correct for your operating system. On the next page, select the link 'base', which is just the normal version of R.  
+To install the R language, go to [this link](https://cran.r-project.org/) and select the Download link that is correct for your operating system.    
   
 **For Windows** users, select the link called 'base', which is just the normal version of R. On the next page, click the big 'Download R' link at the top of the page (the link will also have the version number in the title), which will start your download. When the file has downloaded, open the '.exe' file, and click through the installer prompts leaving all the default options.  
   

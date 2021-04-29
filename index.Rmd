@@ -6,7 +6,7 @@ output:
 ---
 
 # Site Navigation
-This project is broken down into several sections, which can be accessed by clicking on tabs in the top navigation bar.
+This project is broken down into several sections, which can be accessed by clicking on tabs in the top navigation bar. Make sure to read through the 'Resources' and 'Background' tabs before starting! Exercises can be found in steps 1-4. The assignment can be downloaded from the 'Assignment' tab. <font color=purple>Purple text means that you need to answer a question or paste a screenshot into the assignment.</font>
 
 # Assignment Overview
 In this project, you will be tasked with taking R scripts from this website and applying them towards analytical chemistry questions. Even if you don't yet have the experience to write original code, learning how to use and modify existing scripts for your own purpose is an essential skill for a scientific career. The project is broken down into several sections, which increase in difficulty and complexity. The sections are described below, with their respective learning goals.

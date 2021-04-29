@@ -113,7 +113,7 @@ Just a reminder that the best way to have this function available is to copy and
 
 It is important to note that there are multiple options for the set of pKa values. The ones in the code above come from the [EMBOSS](https://www.ebi.ac.uk/Tools/emboss/) tools, but you could easily replace these with several other sets. One activity could be updating these pKa values with those from another source, and seeing how much the final peptide charge changes. It is also important to acknowledge that local environment can influence the pKa of any ionizable group.
 
-Take a second to read through the code. **Don't worry if you don't understand most, or even any of it!* However, can you find the part where the charge is calculated using equations 4 & 5? Note that doing math in R is generally the same as typing it in on a calculator. You can use all of the normal operators and symbols like `+ - / * ^ ()`.
+Take a second to read through the code. **Don't worry if you don't understand most, or even any of it!** However, can you find the part where the charge is calculated using equations 4 & 5? Note that doing math in R is generally the same as typing it in on a calculator. You can use all of the normal operators and symbols like `+ - / * ^ ()`.
 
 ## Exercise (1)
 The exercise for step one is simple. Simply run the function with an example peptide: <font color="blue">DIAK</font>. 

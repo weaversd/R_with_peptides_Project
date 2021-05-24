@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Set Up</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="Resources.html">Resources</a>
+</li>
+<li>
+  <a href="Background.html">Background</a>
+</li>
+<li>
+  <a href="Setting_Up.html">Set Up</a>
+</li>
+<li>
+  <a href="Step_1.html">Step 1</a>
+</li>
+<li>
+  <a href="Step_2.html">Step 2</a>
+</li>
+<li>
+  <a href="Step_3.html">Step 3</a>
+</li>
+<li>
+  <a href="Step_4.html">Step 4</a>
+</li>
+<li>
+  <a href="Assignment.html">Assignment</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Set Up</h1>
+
+</div>
+
+
+<div id="setting-up-your-workspace" class="section level2">
+<h2>Setting up your workspace</h2>
+<p>For this assignment, you will be copying and pasting blocks of code from this website into RStudio. From RStudio, you will be able to execute the code, see your results, and make minor modifications to the code.</p>
+<p>As mentioned in the resources tab, the first thing to do is to open an ‘.R’ file. If you haven’t done this already, go ahead and follow these instructions:</p>
+<pre><code>File &gt; New File &gt; R script</code></pre>
+<p>At this point there should be four windows open in RStudio, and it will look something like this:<br />
+<img src="RStudio%20Screenshot.png" /></p>
+<p>You can go ahead and save your ‘.R’ document by going to <code>File &gt; Save As</code> and choosing an appropriate location and name for the file (perhaps ‘Peptides_in_R_assignment.R’). This saves your R file (which is the top left window in the screenshot above) and means that you can re-open it anytime you want by going to <code>File &gt; Open File</code>.</p>
+</div>
+<div id="copying-and-pasting-code" class="section level2">
+<h2>Copying and Pasting Code</h2>
+<p>We’re going to use an awesome tutorial from Software Carpentry as an example for how to copy and paste code into RStudio. Feel free to follow along on your own computer if you want. <a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/index.html">Here is a link to the tutorial</a>.</p>
+<p>This page has a couple of functions that I’m interested in using, namely <code>fahrenheit_to_celsius</code> and <code>celsius_to_kelvin</code>. As you can guess, these functions do temperature conversions.</p>
+<p>Here is a screenshot from Software Carpentry that shows where they wrote the function <code>fahrenheit_to_celsius</code>. <img src="software%20carpentry%20f%20to%20c.png" /><br />
+I’m going to copy and paste this entire block of code into my ‘.R’ file. Don’t worry about understanding what is happening with the code yet; at this point we only want to get it into RStudio. Here is what that looks like:<br />
+<img src="ftocinRstudio.png" /></p>
+<p>To be able to use the function, I have to ‘run it’. I will highlight all the lines of code, and then press ‘run’ as highlighted in the screenshot below. <img src="ftocinRstudiohighlight.png" /></p>
+<p>Once that happens, it will show up in my environment tab in the top right window. Now to use the function, I can run it in the console (bottom left window). The easiest way to do this is to type the function into the console along with an argument (which in this case will be the temperature I want to convert: 70), and then press enter. The argument goes inside the parentheses right after the function. Here is a screenshot of that:<br />
+<img src="ftocconsole.png" /></p>
+<p>When I press enter, it takes the input value I provided (70) and uses the function <code>fahrenheight_to_celsius</code> to do the calculation. Here is what the output looks like:</p>
+<p><img src="ftocconsolerun.png" /></p>
+<p>It looks like 70F is 21.1C.</p>
+<p>Also on the Software Carpentry website is a function to convert celsius to Kelvin. I’m going to copy and paste that function into my ‘.R’ file as well:</p>
+<p><img src="ctokrstudio.png" /></p>
+<p>Notice that I put this new block of code a few lines under the previous one to keep them separated. Now I will highlight this block of code and run it to make the new <code>celsius_to_kelvin</code> function availible:</p>
+<p><img src="ctokrun.png" /></p>
+<p>Now I can execute this function in the console as well. Lets convert 21.1C to Kelvin. Remember, type the function and the argument and press enter:</p>
+<p><img src="ctokconsole.png" /></p>
+<p>If you want to save your progress, you can save the ‘.R’ file where you’ve been copying code by going to <code>File &gt; Save</code>.</p>
+<p>Those are the basics of copying code into RStudio and executing it! The important things to remember are:</p>
+<ul>
+<li>Copy code into the top left window (Your ‘.R’ file).</li>
+<li>Highlight the code and press ‘Run’ to make the functions available.</li>
+<li>Use the functions by typing them in the console in the bottom left window.</li>
+<li>You can put multiple functions or blocks of code in the same R file. Just make sure to separate them with a couple of blank lines.</li>
+</ul>
+<p>In addition to functions, you can copy other blocks of code (like <code>for</code> loops) into your R file, and run them the same way: by highlighting and pressing run. We’ll get into that later in the tutorial.</p>
+</div>
+<div id="modifying-code" class="section level2">
+<h2>Modifying Code</h2>
+<p>The next step after getting the code into RStudio is to make modifications to suit your needs. Let’s say that I want to add in a line of code that tells me the units of my output. I can edit the functions directly in the ‘.R’ file like in the screenshot below:</p>
+<p><img src="edited%20code.png" /></p>
+<p>In this case, I’ve added the two highlighted lines, which tell the functions to print out the units of the temperatures when they are calculated. Because I’ve changed the ‘.R’ file, I need to ‘run’ the functions again. To do this, highlight them and press run:</p>
+<p><img src="edited%20code%20highlighted.png" /></p>
+<p>Now when I run either of the functions in the console, it will also print out the temperature scale used:</p>
+<p><img src="ctokwithunits.png" /></p>
+<p>Those are the basics of editing code! The important aspects are:</p>
+<ul>
+<li>Make your modifications in the ‘.R’ file.</li>
+<li>Re-run the ‘.R’ code by highlighting the modified code chunks and pressing run.</li>
+<li>Use your modified functions by typing them into the console and pressing enter.</li>
+</ul>
+</div>
+<div id="applications-to-this-assignment" class="section level2">
+<h2>Applications to this assignment</h2>
+<p>Those are the basic steps that you will need to complete this assignment: Copying blocks of code from this website, running them in your ‘.R’ file, using them in the console, and making modifications in the ‘.R’ file.</p>
+<p>Step 1 has you copying and pasting a function that calculates the charge of a peptide. Step 2 has you using this function in the console to apply it to a real world problem. Steps 3 and 4 have you making modifications to blocks of code in order to apply them to your own data.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

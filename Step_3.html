@@ -13,6 +13,7 @@
 
 <title>Step 3</title>
 
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -364,6 +365,9 @@ div.tocify {
   <a href="Background.html">Background</a>
 </li>
 <li>
+  <a href="Setting_Up.html">Set Up</a>
+</li>
+<li>
   <a href="Step_1.html">Step 1</a>
 </li>
 <li>
@@ -432,24 +436,33 @@ for (pep in peptides) {
 ## [1] 20
 ## [1] &quot;HTLNQIDEVK&quot;
 ## [1] 10</code></pre>
-<p>Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge?</p>
+<p>Now you want to do essentially the same thing, but instead of printing out the length, print out the charge at pH 7. How can you modify the code to print out the charge? <em>Note that you don’t have to change anything in the pep_length function (The first 4 lines of the above code). The changes will occur in the <code>for</code> loop that starts <code>for (pep in peptides) {</code>…</em></p>
 <p>You may already have an idea on how to make this happen, that’s great! However, let’s go through an exercise to logically think through what needs to be changed. Here are three general questions we can ask, that sometimes help to figure out a good next step.</p>
 <strong>What does the code do? What are the inputs and what are the outputs?</strong><br />
 
 <details>
-<summary>Click for a possible answer</summary> <em>We are talking about the <code>for</code> loop here. The <code>for</code> loop takes in a list of peptides, and in this case the list is called <code>peptides</code>. For each item in the list, it prints out the peptide (within the <code>for</code> loop, the variable <code>pep</code> refers to whichever peptide the loop is currently on). The loop calculates the length of the peptide using the function <code>pep_length()</code>, and stores that value in the variable <code>peptide_length</code>. Then the <code>for</code> loop prints out the variable <code>peptide_length</code>, which is a number that was calculated in the previous line. The process is repeated for each peptide in the list <code>peptides</code></em>
+<summary>
+Click for a possible answer
+</summary>
+<em>We are talking about the <code>for</code> loop here. The <code>for</code> loop takes in a list of peptides, and in this case the list is called <code>peptides</code>. For each item in the list, it prints out the peptide (within the <code>for</code> loop, the variable <code>pep</code> refers to whichever peptide the loop is currently on). The loop calculates the length of the peptide using the function <code>pep_length()</code>, and stores that value in the variable <code>peptide_length</code>. Then the <code>for</code> loop prints out the variable <code>peptide_length</code>, which is a number that was calculated in the previous line. The process is repeated for each peptide in the list <code>peptides</code></em>
 </details>
 <p><br/></p>
 <strong>What do we want the code to do? What inputs do we have, and what do we expect as outputs?</strong><br />
 
 <details>
-<summary>Click for a possible answer</summary> <em>We have a list of peptides, also called <code>peptides</code>. We want to use this as the input. For each peptide, we want to calculate the charge at pH 7.0. The outputs will be a printout of the peptide, followed by a printout of its charge</em>
+<summary>
+Click for a possible answer
+</summary>
+<em>We have a list of peptides, also called <code>peptides</code>. We want to use this as the input. For each peptide, we want to calculate the charge at pH 7.0. The outputs will be a printout of the peptide, followed by a printout of its charge</em>
 </details>
 <p><br/></p>
 <strong>What parts of the existing code already do what we want, and what parts need to change?</strong><br />
 
 <details>
-<p><summary>Click for a possible answer</summary> <em>The input to the <code>for</code> loop is exactly the same: a list of peptides called <code>peptides</code>. Great! The existing loop prints out the name of each peptide (<code>pep</code> in this case). That’s also fine to stay as is.</em></p>
+<summary>
+Click for a possible answer
+</summary>
+<p><em>The input to the <code>for</code> loop is exactly the same: a list of peptides called <code>peptides</code>. Great! The existing loop prints out the name of each peptide (<code>pep</code> in this case). That’s also fine to stay as is.</em></p>
 <p><em>The existing loop calculates a length, and saves it as a variable <code>peptide_length</code>. We don’t want that. However, you do know a function (from exercises 1 and 2) that calculates the charge of a peptide, which is what we want! How about we use that function instead of <code>pep_length()</code>. Instead of saving the charge value to the variable <code>peptide_length</code>, how about we save it to a different new variable. Maybe <code>peptide_charge</code> will work? You can copy the formatting from the existing <code>for</code> loop, but change the function and the name of the variable. The function <code>pep_charge()</code> takes two arguments: a peptide, and a pH. The peptide part is the same as the existing loop, but we need to specify the pH. Look back at exercise 1 to remember how to format the `pep_charge() function.</em></p>
 <em>Finally, the existing code prints out the variable <code>peptide_length</code>. We just made a new variable called <code>peptide_charge</code>. Can you print that out instead?</em>
 </details>
@@ -457,7 +470,10 @@ for (pep in peptides) {
 <p>Hopefully answering those questions yourself, or reading through a possible answer above helped you think through the changes that you need to make. <font color="purple">Copy and paste a screenshot of your modified code that prints out the charges of all 52 peptides into your assignment (You don’t need to take a screenshot of all the values, just a picture of the <code>for</code> loop that you modified.</font> <strong>Remember that when you change the code, make sure you highlight it and click ‘Run’ again.</strong></p>
 <p>If it worked correctly, you might get an output that includes the correct charges, but also includes the dataframe used to calculate the charge for each peptide. That is a lot of information, and not necessary in this case. Go back to your original <code>pep_charge()</code> function from exercise 1. Find the line that prints out the <code>net_charge_df</code> and delete it or comment it out (putting a <code>#</code> symbol in front of a line of code tells the computer to ignore it - this is referred to as ‘commenting out a line’). Re-run that original <code>pep_charge()</code> function to save the change, and then re-run your ‘for loop’ to print out the values. Is that more manageable?</p>
 <details>
-<p><summary>Click for an additional hint if you’re stuck</summary> <em>One very important ‘motif’ in R coding is seen in the original <code>for</code> loop above. Lets take a closer look at this particular line:</em></p>
+<summary>
+Click for an additional hint if you’re stuck
+</summary>
+<p><em>One very important ‘motif’ in R coding is seen in the original <code>for</code> loop above. Lets take a closer look at this particular line:</em></p>
 <pre class="r"><code>peptide_length &lt;- pep_length(peptide = pep)</code></pre>
 <p><em><code>peptide_length</code> is a variable, <code>pep_length()</code> is a function, and <code>peptide = pep</code> within the parenthesis is the argument for the function. <code>&lt;-</code> is the assignment symbol in R (think of it as an arrow pointing to the left). It means that the value on the right of the symbol is stored in the variable written to the left of the symbol.</em></p>
 <p><em>A more general version of this line of code is:</em></p>
@@ -481,9 +497,7 @@ for (pep in peptides) {
 <pre class="r"><code>#calculate peptide mass
 #create_dictionary. Each one letter code corresponds to a mass value. Must be run before the function
 one_letter &lt;- c(&#39;A&#39;,&#39;R&#39;,&#39;N&#39;,&#39;D&#39;,&#39;C&#39;,&#39;E&#39;,&#39;Q&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;L&#39;,&#39;K&#39;,&#39;M&#39;,&#39;F&#39;,&#39;P&#39;,&#39;S&#39;,&#39;T&#39;,&#39;W&#39;,&#39;Y&#39;,&#39;V&#39;)
-masses &lt;- list(71.03711381, 156.1011111, 114.0429275, 115.0269431, 103.0091845, 129.0425931, 128.0585775,
-               57.02146374, 137.0589119, 113.084064, 113.084064, 128.0949631, 131.0404846, 147.0684139,
-               97.05276388, 87.03202844, 101.0476785, 186.079313, 163.0633286, 99.06841395)
+masses &lt;- list(71.03711381, 156.1011111, 114.0429275, 115.0269431, 103.0091845, 129.0425931, 128.0585775, 57.02146374, 137.0589119, 113.084064, 113.084064, 128.0949631, 131.0404846, 147.0684139, 97.05276388, 87.03202844, 101.0476785, 186.079313, 163.0633286, 99.06841395)
 names(masses) &lt;- one_letter
 
 #the function to calculate the mass
@@ -535,15 +549,19 @@ m_over_z &lt;- function(peptide, pH = 7) {
 <li>The charge will always be +1</li>
 <li>The mass will be the mass of the peptide <em>plus the mass of a proton</em> which is approximately <strong>1.008 Da</strong>.</li>
 </ul>
+<p><em>Note that you don’t have to make changes in the <code>pep_mass</code> function which is the first chunk of code above. Instead, the changes will take place within the <code>m_over_z</code> function section, which is the last 6 lines.</em></p>
 <p>Lets think through those same three questions we asked in exercise 3a. <font color="purple">Write out answers to these questions in your assignment.</p>
 <p><strong>What does the code do? What are the inputs and what are the outputs?</strong><br />
 <strong>What do we want the code to do? What inputs do we have, and what do we expect as outputs?</strong><br />
 <strong>What parts of the existing code already do what we want, and what parts need to change?</strong> </font></p>
 <details>
-<p><summary>Click for an additional hint if you’re stuck</summary> <em>To calculate m/z we need to have a mass divided by a charge. Can you see where this is done in the original function? Which variable stores mass, and which stores charge? Do we need the charge varibale, or is that a fixed value for MALDI?</em></p>
+<summary>
+Click for an additional hint if you’re stuck
+</summary>
+<p><em>To calculate m/z we need to have a mass divided by a charge. Can you see where this is done in the original function? Which variable stores mass, and which stores charge? Do we need the charge varibale, or is that a fixed value for MALDI?</em></p>
 <p><em>Dividing in R is as simple as taking one variable, writing ‘/’ and writing another variable. For example, if I had a varible <code>tacos</code> that was the number of tacos I bought, and another variable <code>cost</code> that was how much I paid for all the tacos, I could calculate a variable <code>price_per_taco</code> by doing:</em></p>
 <pre class="r"><code>price_per_taco &lt;- tacos / cost</code></pre>
-<p><em>The same goes for adding. If I left a tip of $2 when I bought the tacos, I could calculate a variable</em> <code>total_cost</code> by doing:</p>
+<p><em>The same goes for adding. If I left a tip of $2 when I bought the tacos, I could calculate a variable <code>total_cost</code> by doing:</em></p>
 <pre class="r"><code>total_cost &lt;- cost + 2</code></pre>
 </details>
 <p><br/></p>

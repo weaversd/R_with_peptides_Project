@@ -46,11 +46,18 @@ The bottom left window of RStudio is the console, which is where all the R code 
 You'll see that I have run a function: `pep_charge("DIAK", pH = 10)` and got a printout with the result. I've typed, but not yet run, a function called `pep_mass()`. You run code from the console by simply pressing enter.  
 
 ## Installing packages
-For this project, you will need to have the package `stringr` installed in your environment. There are several ways to do this (try googling 'install package R') but the easiest thing to do is to click on the 'packages' tab in the bottom right window. From there, click on 'Install', and type 'stringr' into the packages box. Press 'Install' and RStudio will import your package for you (it may take ~10 seconds). See the screenshots below for help with this process:  
+For this project, you will need to have the package `stringr` installed in your environment. There are several ways to do this (try googling 'install package R') but the easiest thing to do is to click on the 'packages' tab in the bottom right window. From there, click on 'Install', and type 'stringr' into the packages box. Press 'Install' and RStudio will import your package for you (it may take ~10 seconds). Then search in the packages tab for 'stringr' and click the checkbox next to its name to ensure that it is loaded. See the screenshots below for help with this process:  
 
-![*Install a package: Go to 'packages' > 'Install'*](package install.png) 
+![*Install a package: Go to 'packages' > 'Install'*](package install.png)  
 
-![*Install a package: Type 'stringr' into the packages field, and press Install*](stringr install.png) 
+![*Install a package: Type 'stringr' into the packages field, and press Install*](stringr install.png)  
+  
+  
+![*Load the package by checking the box next to 'stringr' after searching for it in the packages tab*](stringrcheckbox.png)   
+
+
+Note that if you close RStudio and reopen it later, you may have to re-check this box. If you are getting error messages, this is one thing to check.
+
 
 ## Definitions
 While the goal of this project is to get you using R without going through an intense training process, it still is helpful to know several key definitions. [Tutorialspoint.com](https://www.tutorialspoint.com/r/index.htm) breaks down R to the basics, and I recommend you read just a little bit about R here before you start (Not more than 10 or 15 minutes). For the purpose of this project, focus on the tabs called 'Variables', 'Decision Making', 'Loops', and 'Functions'. If you don't understand some, or even most of this, that's ok! It may be helpful to have this page open in a browser tab while working through the exercises for you to reference as needed.

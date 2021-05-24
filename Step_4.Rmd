@@ -22,6 +22,8 @@ peptide_summary <- function(peptide, pH){
   
 }
 ```
+You will have to use the `print()` function to make this work. Briefly, `print()` will print anything within the parentheses to the console. This can be a value (e.g. `print(7)` will print "7"), or it can be a variable (e.g. `my_name <- "Simon"` followed by `print(my_name)` will print "Simon"). You can even call another function within print (e.g. `print(toupper("simon"))` will print "SIMON", where 'toupper()' is a function that converts lowercase letters to capital letters. See the bottom of this page for a comparison between `print` and `return`. 
+
 <font color="purple">Take a screenshot of your code and paste it into the assignment. Use your `peptide_summary()` function to calculate all the attributes for your favorite peptide (You can make one up!)</font>  
 
 ## Exercise (4b)

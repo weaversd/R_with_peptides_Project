@@ -6,6 +6,8 @@ navbar:
       href: Resources.html
     - text: "Background"
       href: Background.html
+    - text: "Set Up"
+      href: Setting_Up.html
     - text: "Step 1"
       href: Step_1.html
     - text: "Step 2"
